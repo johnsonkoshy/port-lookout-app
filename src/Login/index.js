@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 
 export default function SignIn() {
   const handleSubmit = (event) => {
@@ -39,7 +40,7 @@ export default function SignIn() {
 
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: "AIzaSyBQkMz6OkS4I9YYZ2xNiNsDIVe79JYuOVw",
+    apiKey: FIREBASE_API_KEY,
     authDomain: "port-lookout-app-1.firebaseapp.com",
     projectId: "port-lookout-app-1",
     storageBucket: "port-lookout-app-1.appspot.com",
