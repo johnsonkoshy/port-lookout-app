@@ -7,6 +7,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Home from "./Home";
 import Header from "./Header";
 import Details from "./Details";
+import Login from "./Login";
+import Signup from "./Login/Signup";
 
 export default function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -28,6 +30,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="details" element={<Details />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

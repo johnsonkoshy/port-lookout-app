@@ -6,10 +6,11 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-
+import { useNavigate } from "react-router-dom";
 const PortProfile = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
+  const settings = ["Profile", "Account", "Dashboard", "login"];
+  const navigate = useNavigate();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -17,6 +18,12 @@ const PortProfile = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  const clickItem = (setting) => {
+    return () => {
+      navigate(setting);
+      setAnchorElUser(null);
+    };
   };
 
   return (
@@ -43,7 +50,7 @@ const PortProfile = () => {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
+          <MenuItem key={setting} onClick={clickItem(setting)}>
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
         ))}
