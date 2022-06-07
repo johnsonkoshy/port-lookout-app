@@ -23,7 +23,7 @@ export default function SubHeader() {
           color: "text.secondary"
         }}
       >
-        Ship Name
+        ShipName
       </Typography>
       <Box sx={{ flexGrow: 1 }}></Box>
       <Button variant="contained" onClick={handleOpen}>

@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 export default function ManageUsers() {
   const style = {
@@ -9,7 +8,8 @@ export default function ManageUsers() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: "80%",
+    height: "80%",
     bgcolor: "background.paper",
 
     boxShadow: 24,
