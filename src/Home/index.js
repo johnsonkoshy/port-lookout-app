@@ -15,12 +15,13 @@ export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [portcallList,setPortCallList] = React.useState(port_data);
-  const closeFn = async (shouldClose)=>shouldClose && setOpen(false) && getUpdatePortCall()
+  const [portcallList,setPortCallList] = React.useState([]);
+  const closeFn = async (shouldClose)=>shouldClose && setOpen(false) && await getUpdatePortCall()
   
   const getUpdatePortCall = async ()=>{
     const portcallListRes = await services.getPortCalls()
-    setPortCallList(prev => ([...portcallListRes, ...prev]))
+    // setPortCallList(prev => ([...portcallListRes, ...prev]))
+    setPortCallList(portcallListRes)
   }
 
   React.useEffect(() => {
