@@ -28,8 +28,7 @@ const API = () =>{
             try{
               
                 const auth = getAuth();
-                const userCredential= await createUserWithEmailAndPassword(auth, email, password)
-                const {user}=userCredential;
+                const {user}= await createUserWithEmailAndPassword(auth, email, password)
                 await updateProfile(user, {
                     displayName: firstName + " " + lastName
                   });
@@ -62,12 +61,12 @@ const API = () =>{
             const portcallList = portcallSnapshot.docs.map(doc => ({...doc.data(), id:doc.id}));
             return portcallList;
         },
-        getPortCallDetails:async(id)=>{
+        getPortCallDetails:async(portid)=>{
             const db = getFirestore(app);
             const portcallsCol = collection(db, PORTCALLS_DB);
-            const portcallDetailsRef = doc(portcallsCol,id)
+            const portcallDetailsRef = doc(portcallsCol,portid)
             const portcallDetailsData = await getDoc(portcallDetailsRef)
-            return portcallDetailsData.data();
+            return {...portcallDetailsData.data(),id:portcallDetailsData.id};
         },
         createPortCall:async (data)=>{
             const db = getFirestore(app);

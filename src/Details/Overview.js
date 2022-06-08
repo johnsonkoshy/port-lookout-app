@@ -41,10 +41,11 @@ export default function Overview({portid, portcallData}) {
               required
               id="outlined-required"
               label="PortID"
-              defaultValue={portid}
+              defaultValue={" "}
               margin="normal"
               disabled
               sx={{width:300}}
+              value={portcallData.id}
             />
             <TextField
               required
