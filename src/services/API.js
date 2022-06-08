@@ -4,7 +4,7 @@ import {
     createUserWithEmailAndPassword,
     updateProfile
   } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from 'firebase/firestore/lite';
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc } from 'firebase/firestore/lite';
 
 import { initializeApp } from "firebase/app";
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
@@ -61,6 +61,13 @@ const API = () =>{
             const portcallSnapshot = await getDocs(portcallsCol);
             const portcallList = portcallSnapshot.docs.map(doc => ({...doc.data(), id:doc.id}));
             return portcallList;
+        },
+        getPortCallDetails:async(id)=>{
+            const db = getFirestore(app);
+            const portcallsCol = collection(db, PORTCALLS_DB);
+            const portcallDetailsRef = doc(portcallsCol,id)
+            const portcallDetailsData = await getDoc(portcallDetailsRef)
+            return portcallDetailsData.data();
         },
         createPortCall:async (data)=>{
             const db = getFirestore(app);

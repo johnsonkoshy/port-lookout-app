@@ -11,9 +11,9 @@ export default [
     sortable: false,
     width: 160,
     editable: true,
-    renderCell: ({ value, hasFocus }) => {
+    renderCell: ({ row, value, hasFocus }) => {
       return (
-        <Link component={BrowswerLink} to="/details">
+        <Link component={BrowswerLink} to={`/details/${row.id}`}>
           {value}
         </Link>
       );

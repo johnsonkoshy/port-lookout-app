@@ -8,8 +8,19 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
+import API from '../services/API';
 
-export default function Overview() {
+const services = new API();
+export default function Overview({portid}) {
+  const [overviewData, setOverviewData] = React.useState({})
+  React.useEffect(()=>{
+    (async () => {
+      const returnedData = await services.getPortCallDetails(portid)
+      setOverviewData({...returnedData})
+    })()
+  },[])
+
+
   return (
     <>
       <Alert severity="warning" sx={{ mb: 1 }}>
@@ -36,14 +47,15 @@ export default function Overview() {
               required
               id="outlined-required"
               label="PortID"
-              defaultValue="1234"
+              defaultValue={portid}
               margin="normal"
             />
             <TextField
               required
               id="outlined-required"
+              defaultValue={"Port Name"}
               label="Port"
-              defaultValue="New Orleans, LA"
+              value={overviewData.port}
               margin="normal"
             />
           </CardContent>

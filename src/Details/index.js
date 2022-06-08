@@ -10,13 +10,18 @@ import Updates from "./Updates";
 import Documents from "./Documents";
 import StatementOfFacts from "./StatementOfFacts";
 import SubHeader from "./SubHeader";
+import { useParams} from "react-router-dom";
+
+
+
+
 export default function Details() {
   const [value, setValue] = React.useState("1");
-
+  const {portid} = useParams();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+ 
   return (
     <Box sx={{ width: "100%", p: 2 }}>
       <SubHeader />
@@ -31,13 +36,13 @@ export default function Details() {
           </TabList>
         </Box>
         <TabPanel value="1">
-          <Overview />
+          <Overview portid={portid}/>
         </TabPanel>
         <TabPanel value="2">
-          <Updates />
+          <Updates portid={portid}/>
         </TabPanel>
         <TabPanel value="3">
-          <Documents />
+          <Documents portid={portid}/>
         </TabPanel>
         <TabPanel value="4">
           <StatementOfFacts />

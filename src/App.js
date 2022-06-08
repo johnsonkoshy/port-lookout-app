@@ -29,7 +29,7 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="details" element={<Details />} />
+          <Route path="details/:portid" element={<Details />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Routes>
