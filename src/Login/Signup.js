@@ -10,13 +10,9 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile
-} from "firebase/auth";
-import { initializeApp } from "firebase/app";
-const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
+import API from '../services/API'
+
+
 export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,38 +21,13 @@ export default function SignUp() {
       password = data.get("password"),
       firstName = data.get("firstName"),
       lastName = data.get("lastName");
-
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        updateProfile(user, {
-          displayName: firstName + " " + lastName
-        });
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
-    console.log({
-      email: data.get("email"),
-      password: data.get("password")
-    });
+    const services = new API();
+    
+    services.signUp(email, password, firstName, lastName)
+    
   };
   React.useEffect(() => {
-    const firebaseConfig = {
-      apiKey: FIREBASE_API_KEY,
-      authDomain: "port-lookout-app-1.firebaseapp.com",
-      projectId: "port-lookout-app-1",
-      storageBucket: "port-lookout-app-1.appspot.com",
-      messagingSenderId: "1026314452102",
-      appId: "1:1026314452102:web:b42f5d07cabb928fb3a507",
-      measurementId: "G-W8EQ76ML8Q"
-    };
-    initializeApp(firebaseConfig);
+    
   }, []);
 
   return (

@@ -25,7 +25,7 @@ export default function SubHeader() {
       >
         ShipName
       </Typography>
-      <Box sx={{ flexGrow: 1 }}></Box>
+      <Box sx={{ flexGrow: 1 }} />
       <Button variant="contained" onClick={handleOpen}>
         Manage Users
       </Button>

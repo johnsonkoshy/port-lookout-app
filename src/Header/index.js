@@ -9,7 +9,7 @@ import PortDesktopMenu from "./PortDesktopMenu";
 import Box from "@mui/material/Box";
 
 const Header = () => {
-  const pages = ["Statement of Facts", "Update Ship"];
+  const pages = ["Create New"];
 
   return (
     <AppBar position="static" sx={{ mb: "5px", pl: 2, pr: 2 }}>
