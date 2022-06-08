@@ -16,7 +16,7 @@ import {
   updateProfile
 } from "firebase/auth";
 import { initializeApp } from "firebase/app";
-
+const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -48,7 +48,7 @@ export default function SignUp() {
   };
   React.useEffect(() => {
     const firebaseConfig = {
-      apiKey: "AIzaSyBQkMz6OkS4I9YYZ2xNiNsDIVe79JYuOVw",
+      apiKey: FIREBASE_API_KEY,
       authDomain: "port-lookout-app-1.firebaseapp.com",
       projectId: "port-lookout-app-1",
       storageBucket: "port-lookout-app-1.appspot.com",
