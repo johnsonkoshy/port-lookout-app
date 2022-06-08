@@ -5,8 +5,8 @@ import * as React from "react";
 export default [
   { field: "id", headerName: "Port ID", width: 70 },
   {
-    field: "shipName",
-    headerName: "Ship",
+    field: "vesselName",
+    headerName: "Vessel Name",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,

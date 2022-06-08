@@ -8,13 +8,25 @@ import Button from "@mui/material/Button";
 import AddIcon from '@mui/icons-material/Add';
 import Modal from "@mui/material/Modal";
 import Create from './Create';
+import API from '../services/API';
+
+const services = new API();
 export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [portcallList,setPortCallList] = React.useState(port_data);
+  const closeFn = async (shouldClose)=>shouldClose && setOpen(false) && getUpdatePortCall()
   
+  const getUpdatePortCall = async ()=>{
+    const portcallListRes = await services.getPortCalls()
+    setPortCallList(prev => ([...portcallListRes, ...prev]))
+  }
+
   React.useEffect(() => {
-   
+    (async ()=>{
+      await getUpdatePortCall();
+    })()
 
   }, []);
   
@@ -31,7 +43,7 @@ export default function Home() {
       
 
       <DataGrid
-        rows={port_data}
+        rows={portcallList}
         columns={columns}
         pageSize={15}
         rowsPerPageOptions={[5]}
@@ -45,7 +57,7 @@ export default function Home() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Create />
+        <Create closeFn={closeFn}/>
       </Modal>
     </Box>
   );
