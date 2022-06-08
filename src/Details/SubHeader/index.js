@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import ManageUsers from "./ManageUsers";
 
-export default function SubHeader() {
+export default function SubHeader({portcallData}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -23,7 +23,7 @@ export default function SubHeader() {
           color: "text.secondary"
         }}
       >
-        ShipName
+        {portcallData.vesselName}
       </Typography>
       <Box sx={{ flexGrow: 1 }} />
       <Button variant="contained" onClick={handleOpen}>

@@ -11,20 +11,30 @@ import Documents from "./Documents";
 import StatementOfFacts from "./StatementOfFacts";
 import SubHeader from "./SubHeader";
 import { useParams} from "react-router-dom";
+import API from '../services/API';
 
+const services = new API();
 
 
 
 export default function Details() {
   const [value, setValue] = React.useState("1");
+  const [portcallData, setPortcallData] = React.useState({})
+
   const {portid} = useParams();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
- 
+  React.useEffect(()=>{
+    (async () => {
+      const returnedData = await services.getPortCallDetails(portid)
+      setPortcallData({...returnedData})
+    })()
+  },[])
+
   return (
     <Box sx={{ width: "100%", p: 2 }}>
-      <SubHeader />
+      <SubHeader portcallData={portcallData}/>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -36,7 +46,7 @@ export default function Details() {
           </TabList>
         </Box>
         <TabPanel value="1">
-          <Overview portid={portid}/>
+          <Overview portid={portid} portcallData={portcallData}/>
         </TabPanel>
         <TabPanel value="2">
           <Updates portid={portid}/>
