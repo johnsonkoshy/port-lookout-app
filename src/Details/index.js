@@ -45,18 +45,10 @@ export default function Details() {
             <Tab label="Other Port Information" value="5" />
           </TabList>
         </Box>
-        <TabPanel value="1">
-          <Overview portid={portid} portcallData={portcallData}/>
-        </TabPanel>
-        <TabPanel value="2">
-          <Updates portid={portid}/>
-        </TabPanel>
-        <TabPanel value="3">
-          <Documents portid={portid}/>
-        </TabPanel>
-        <TabPanel value="4">
-          <StatementOfFacts />
-        </TabPanel>
+        <TabPanel value="1" children={<Overview portid={portid} portcallData={portcallData}/>} />
+        <TabPanel value="2" children={<Updates portid={portid}/>} />
+        <TabPanel value="3" children={<Documents portid={portid}/>} />
+        <TabPanel value="4" children={<StatementOfFacts />} />
       </TabContext>
     </Box>
   );
