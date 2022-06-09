@@ -21,8 +21,8 @@ export default function File() {
         </Typography>
         <Typography variant="body2"></Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" sx={{ textTransform: "none" }}>
+      <CardActions sx={{backgroundColor:'primary.main', }}>
+        <Button size="small" sx={{ textTransform: "none",color:'primary.contrastText' }}>
           Vessel_Registry.docx
         </Button>
       </CardActions>
