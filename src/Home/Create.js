@@ -97,17 +97,18 @@ export default function Create({closeFn}){
                   label="Charterer"
                   name='charterer'
                 />
+                
+              </CardContent>
+            </Card>
+            <Card sx={{mb:1}}>
+              <CardContent>
+                <Typography variant="h6">Section C</Typography>
                 <TextField
                   onChange={handleInput}
                   label="ETA"
                   name='eta'
 
                 />
-              </CardContent>
-            </Card>
-            <Card sx={{mb:1}}>
-              <CardContent>
-                <Typography variant="h6">Section C</Typography>
                 <TextField
                   id="outlined-multiline-flexible"
                   label="ETB"
