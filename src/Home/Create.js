@@ -105,6 +105,7 @@ export default function Create({closeFn}){
                 <Typography variant="h6">Section C</Typography>
                 <TextField
                   onChange={handleInput}
+                  type="date"
                   label="ETA"
                   name='eta'
 
@@ -113,17 +114,20 @@ export default function Create({closeFn}){
                   id="outlined-multiline-flexible"
                   label="ETB"
                   name='etb'
+                  type="date"
                   onChange={handleInput}
                 />
                 <TextField
                   label="ETC"
                   onChange={handleInput}
                   name='etc'
+                  type="date"
                 />
                 <TextField
                   onChange={handleInput}
                   label="ETD"
                   name='etd'
+                  type="date"
                 />
                 <TextField
                   onChange={handleInput}
