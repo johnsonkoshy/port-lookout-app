@@ -15,6 +15,7 @@ export default function ManageUsers() {
     setValue(newValue);
   };
 
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -78,18 +79,11 @@ export default function ManageUsers() {
   
   return (
     <Box sx={style}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <TabList>
-          <Tab label="Settings" value="1" />
-          <Tab label="Users" value="2" />
-        </TabList>
-      </Box>
+      
+
       <Box sx={{ display: "flex" }}>
         <Typography id="modal-modal-title" variant="h6" component="h2" color="red">
           Users
-          
-    
-          
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
         <Button variant = "outlined" 
