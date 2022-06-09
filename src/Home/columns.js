@@ -21,15 +21,17 @@ export default [
       );
     }
   },
-  { field: "eta", headerName: "ETA", width: 150 },
+  { field: "eta", headerName: "ETA", width: 150,type: 'date', },
   {
     field: "etb",
     headerName: "ETB",
+    type: 'date',
     width: 150
   },
   {
     field: "etc",
     headerName: "ETC",
+    type: 'date',
     width: 150
   },
   {
@@ -40,11 +42,13 @@ export default [
   {
     field: "cargo",
     headerName: "Cargo",
+    type: 'date',
     width: 150
   },
   {
     field: "berth",
     headerName: "Berth",
+    type: 'date',
     width: 150
   },
   {
