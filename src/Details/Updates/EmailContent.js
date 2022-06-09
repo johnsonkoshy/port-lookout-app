@@ -6,34 +6,42 @@ import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import API from '../../services/API';
 
-export default function EmailContent() {
+const services = new API();
+export default function EmailContent({emailData, portid}) {
+  const [attachments, setAttachments] = React.useState([]);
+  const {subject, to, updates,id} = emailData;
+ 
+  React.useEffect(()=>{
+    (async ()=>{
+      const items = await services.getPortUpdateFiles(portid, id);
+      setAttachments(items)
+    })()
+  },[portid,emailData])
   return (
     <Container maxWidth>
       <Box sx={{ display: "flex", p: 1 }}>
         <Avatar alt="Srinee Bajaj" sx={{ m: 1 }} />
 
         <Box>
-          <Typography>Ali Connors</Typography>
-          <Typography>Recepient 1</Typography>
-          <Typography>RE: Subject</Typography>
+          <Typography>{to}</Typography>
+          <Typography>{subject}</Typography>
         </Box>
       </Box>
       <Divider />
       <Stack spacing={2} direction="row" sx={{ p: 2 }}>
-        <Button variant="outlined">Attachment 1</Button>
-        <Button variant="outlined">Attachment 2</Button>
-        <Button variant="outlined">Attachment 3</Button>
+        {
+          attachments.map(f=>{
+            return <Button variant="outlined" component="a">{f.name}</Button>
+          })
+        }
+        
       </Stack>
       <Divider />
       <Box sx={{ p: 2 }}>
         <Typography component="p">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae
-          leo ac felis auctor fermentum. Duis quis accumsan turpis, at viverra
-          augue. Vivamus sed quam faucibus, pellentesque erat sit amet, iaculis
-          erat. Proin finibus orci ut lacus molestie bibendum. Donec nisl felis,
-          maximus eget mi ut, malesuada blandit arcu. Nunc sed mattis massa, a
-          ultrices sapien. Nullam ac scelerisque ipsum.
+         {updates}
         </Typography>
       </Box>
     </Container>

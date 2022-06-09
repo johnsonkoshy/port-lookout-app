@@ -14,9 +14,19 @@ import { styled } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import Chip from '@mui/material/Chip';
 
+const services = new API();
 
-export default function NewUpdate(){
-    const [uploadBtnTxt, setUploadBtnTxt] = React.useState("")
+
+export default function NewUpdate({portid, afterCreate}){
+    const [attachedFilesChips, setAttachedFilesChips] = React.useState("")
+    const [formInput, setFormInput] = React.useState({});
+    const [attachments,setAttachments] = React.useState()
+
+    const handleInput = evt => {
+        const name = evt.target.name;
+        const newValue = evt.target.value;
+        setFormInput(prev => ({...prev, [name]: newValue }));
+    };
     const style = {
         position: "absolute",
         top: "50%",
@@ -31,11 +41,16 @@ export default function NewUpdate(){
     };
     const Input = styled('input')({
         display: 'none',
-      });
+    });
 
+    const onSave = async (e)=>{
+        const res = await services.createPortUpdates({...formInput, portid} , attachments)
+        await afterCreate(res)
+    }
     const onAddFile= (e)=>{
         const files = Array.from(e.target.files)
-        setUploadBtnTxt(files.map(f=> <Chip label={f.name}  />))
+        setAttachedFilesChips(files.map(f=> <Chip label={f.name}  />))
+        setAttachments(files)
     }
     return(
         <Box sx={{...style}}>
@@ -46,38 +61,39 @@ export default function NewUpdate(){
                 <TextField
                     id="outlined-multiline-static"
                     label="To"
-                    
-                    
+                    onChange={handleInput}
+                    name={"to"}
                     sx={{mb:1}}
                     fullWidth
                 />
                 <TextField
                     id="outlined-multiline-static"
                     label="Subject"
-                    
-                    
+                    onChange={handleInput}
+                    name={"subject"}
                     sx={{mb:1}}
                     fullWidth
                 />
                 <TextField
                     id="outlined-multiline-static"
                     label="Updates"
+                    name={"updates"}
                     multiline
                     rows={4}
                     sx={{mb:1}}
-                    
+                    onChange={handleInput}
                     fullWidth
                 />
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained" sx={{mr:1}}>Save & Send Update</Button>
-                        <Button variant="outlined" component="label"  >
+                    <Button variant="contained" sx={{mr:1}} onClick={onSave}>Save & Send Update</Button>
+                    <Button variant="outlined" component="label"  >
                         {" "}
-                            <AddIcon /> Upload
-                            <input type="file" onChange={onAddFile} hidden multiple/>
+                        <AddIcon /> Upload
+                        <input type="file" onChange={onAddFile} hidden multiple/>
                     </Button>
                     <Stack direction="row" spacing={1} sx={{ml:1}}>
-                        {uploadBtnTxt}
+                        {attachedFilesChips}
                     </Stack>
                 </CardActions>
             </Card>

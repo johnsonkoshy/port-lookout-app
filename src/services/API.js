@@ -4,8 +4,8 @@ import {
     createUserWithEmailAndPassword,
     updateProfile
   } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc } from 'firebase/firestore/lite';
-import { getStorage, ref, getDownloadURL} from "firebase/storage";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc, query, where  } from 'firebase/firestore/lite';
+import { getStorage, ref, getDownloadURL,uploadBytes,listAll} from "firebase/storage";
 import { initializeApp } from "firebase/app";
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 
@@ -22,6 +22,7 @@ const API = () =>{
     };
     const app = initializeApp(firebaseConfig);
     const PORTCALLS_DB= "portcalls"
+    const PORT_UPDATES_DB="port_updates"
     return({
         signUp:async (email, password, firstName, lastName) => {
             let isSuccess=false;
@@ -81,12 +82,52 @@ const API = () =>{
             const portcallDetailsData = await deleteDoc(portcallDetailsRef)
             return portcallDetailsData
         },
-        getPortUpdates: async (portid, updateid) =>{
+        createPortUpdates:async (updateData, files)=>{
+            const db = getFirestore(app);
+            const port_updates_col = collection(db, PORT_UPDATES_DB);
+            const response = await addDoc(port_updates_col, updateData)
+
+            const createPortUpdateAttachments= async (updates_id, portid, files) =>{
+                if(!(files && files.length>0))return false;
+                const storage = getStorage(app);
+                files.map(async file => {
+                    const storeageFileRef = ref(storage, `documents/${portid}/${updates_id}/${file.name}`);
+                    await uploadBytes(storeageFileRef, file)
+                })
+                
+                
+            }
+
+            await createPortUpdateAttachments(response.id, updateData.portid, files)
+            return response;
+        },
+        getPortUpdates:async (portid)=>{
+            const db = getFirestore(app);
+            const port_updates_col = collection(db, PORT_UPDATES_DB);
+
+
+            const q = query(port_updates_col, where("portid", "==", portid));
+            const update_response = await getDocs(q)
+            const update_list = update_response.docs.map(doc => ({...doc.data(), id:doc.id}));
+            return update_list;
+        },
+        getPortUpdateFiles: async (portid, update_id) =>{
             const storage = getStorage(app);
-            const pathReference = ref(storage, `port_updates/${portid}`);
-            const downloadUrl = await getDownloadURL(pathReference)
-            return downloadUrl;
-        }
+            const pathReference = ref(storage, `documents/${portid}/${update_id}`);
+            const {items} = await listAll(pathReference)
+            
+            if(items && items.length){
+                for(let i = 0; i<items.length; i++){
+                    const url =await getDownloadURL(ref(items[i].storage, items[i].fullPath));
+                    items[i].url = url;
+                    
+                }
+                
+            }
+            
+            return items;
+        },
+        
     })
 }
 
