@@ -3,9 +3,19 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { DataGrid } from "@mui/x-data-grid";
 import styled from "styled-components";
+import Button from "@mui/material/Button";
+import Tab from "@mui/material/Tab";
+import TabList from "@mui/lab/TabList";
+
 
 
 export default function ManageUsers() {
+  const [value, setValue] = React.useState("1");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -17,10 +27,13 @@ export default function ManageUsers() {
     boxShadow: 24,
     p: 4,
     overflowY: 'scroll',
-    '& .MuiDataGrid-columnHeaderTitleContainer': {
-      fontWeight: 'bold',
-    }
   };
+
+  // const datagridstyle ={
+  //   // '& .MuiDataGrid-columnHeaderTitle css-1jbbcbn-MuiDataGrid-columnHeaderTitle': {
+  //     fontWeight: 'bold',
+    
+  // }
 
   const columnsone = [
     { field: 'id', headerName: 'User', width: 170 },
@@ -59,19 +72,44 @@ export default function ManageUsers() {
     { id: 9, name: 'Anuj', age: 48 },
   ];
 
-  const Button = styled.button`
-    justify: flexend;
-  `
+  // const Button = styled.button`
+
+  // `
   
   
   return (
     <Box sx={style}>
-
-      <Typography id="modal-modal-title" variant="h6" component="h2" color="red">
-        Users
-        <Button>Invite Users</Button>
-      </Typography>
-      <DataGrid
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <TabList>
+          <Tab label="Settings" value="1" />
+          <Tab label="Users" value="2" />
+        </TabList>
+      </Box>
+      <Box sx={{ display: "flex" }}>
+        <Typography id="modal-modal-title" variant="h6" component="h2" color="red">
+          Users
+          
+    
+          
+        </Typography>
+        <Box sx={{ flexGrow: 1 }}></Box>
+        <Button variant = "outlined" 
+              onClick={() => {
+                alert('clicked');
+                  }}
+              >
+              Invite Users</Button>
+      </Box>
+      <DataGrid 
+        sx={{
+          boxShadow: 2,
+          border: 2,
+          borderColor: 'primary.light',
+          '& .MuiDataGrid-cell:hover': {
+            color: 'primary.main',
+          },
+          
+        }}
         rows={rowsone}
         columns={columnsone}
         pageSize = {10}
