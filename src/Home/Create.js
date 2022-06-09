@@ -7,7 +7,7 @@ import Divider from "@mui/material/Divider";
 import API from "../services/API"
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
+import SaveIcon from '@mui/icons-material/Save';
 const services = new API();
 export default function Create({closeFn}){
     const style = {
@@ -155,7 +155,8 @@ export default function Create({closeFn}){
                 />
               </CardContent>
             </Card>
-        <Button variant="contained" onClick={handleSubmit}>Create & Close</Button>
+        <Button variant="contained" onClick={handleSubmit} sx={{mr:1}}> <SaveIcon />Create PortCall</Button>
+        <Button variant="outlined" color="error" onClick={closeFn}>Cancel</Button>
         </Box>
       );
 }

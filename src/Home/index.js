@@ -37,8 +37,8 @@ export default function Home() {
   ]
   let columnSet= [...columns, ...additionColumn]
   const [portcallList,setPortCallList] = React.useState([]);
-  const closeFn = async (shouldClose)=>{
-    shouldClose && setOpen(false)
+  const closeFn = async ()=>{
+    setOpen(false)
     await getUpdatePortCall()
   }
   

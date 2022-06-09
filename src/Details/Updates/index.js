@@ -15,11 +15,14 @@ export default function Updates({portid}) {
   const [open, setOpen] = React.useState(false);
   const [updates, setUpdates] = React.useState([])
   const [openedEmail, setOpenedEmail] = React.useState({})
+
   const handleClose = () => setOpen(false);
   const handleOpen = ()=> setOpen(true)
+
   const afterCreate = async (responseResult)=>{
     setOpen(false);
-    await hydrateEmailList()
+    await hydrateEmailList();
+    handleClose();
   }
   const hydrateEmailList = async()=>{
     const updatesRes = await services.getPortUpdates(portid);

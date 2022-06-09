@@ -86,15 +86,17 @@ export default function NewUpdate({portid, afterCreate}){
                 />
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained" sx={{mr:1}} onClick={onSave}>Save & Send Update</Button>
+                    <Button variant="contained" sx={{mr:1}} onClick={onSave}>Send Update</Button>
                     <Button variant="outlined" component="label"  >
                         {" "}
                         <AddIcon /> Upload
                         <input type="file" onChange={onAddFile} hidden multiple/>
                     </Button>
-                    <Stack direction="row" spacing={1} sx={{ml:1}}>
+                    <Stack direction="row" spacing={1} sx={{ml:1, mr:1}}>
                         {attachedFilesChips}
                     </Stack>
+                    <Divider orientation="vertical" flexItem sx={{ml:1, mr:1}}/>
+                    <Button variant="outlined" color="error" onClick={afterCreate}>Cancel</Button>
                 </CardActions>
             </Card>
 
