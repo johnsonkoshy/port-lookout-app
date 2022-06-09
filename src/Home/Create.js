@@ -130,7 +130,12 @@ export default function Create({closeFn}){
                   name='agent'
 
                 />
-               
+               <TextField
+                  onChange={handleInput}
+                  label="Cargo"
+                  name='cargo'
+
+                />
               </CardContent>
             </Card>
         <Button variant="contained" onClick={handleSubmit}>Create & Close</Button>
