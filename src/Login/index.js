@@ -38,18 +38,6 @@ export default function SignIn() {
     });
   };
 
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: FIREBASE_API_KEY,
-    authDomain: "port-lookout-app-1.firebaseapp.com",
-    projectId: "port-lookout-app-1",
-    storageBucket: "port-lookout-app-1.appspot.com",
-    messagingSenderId: "1026314452102",
-    appId: "1:1026314452102:web:b42f5d07cabb928fb3a507",
-    measurementId: "G-W8EQ76ML8Q"
-  };
-
-  const app = initializeApp(firebaseConfig);
 
   return (
     <Box
