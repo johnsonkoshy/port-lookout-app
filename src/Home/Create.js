@@ -108,6 +108,9 @@ export default function Create({closeFn}){
                   type="date"
                   label="ETA"
                   name='eta'
+                  InputLabelProps={{
+                    shrink: true
+                  }}
 
                 />
                 <TextField
@@ -116,18 +119,27 @@ export default function Create({closeFn}){
                   name='etb'
                   type="date"
                   onChange={handleInput}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
                 />
                 <TextField
                   label="ETC"
                   onChange={handleInput}
                   name='etc'
                   type="date"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
                 />
                 <TextField
                   onChange={handleInput}
                   label="ETD"
                   name='etd'
                   type="date"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
                 />
                 <TextField
                   onChange={handleInput}
