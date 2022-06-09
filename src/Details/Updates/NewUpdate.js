@@ -12,10 +12,11 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import { styled } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
+import Chip from '@mui/material/Chip';
 
 
 export default function NewUpdate(){
-    const [uploadBtnTxt, setUploadBtnTxt] = React.useState("Upload")
+    const [uploadBtnTxt, setUploadBtnTxt] = React.useState("")
     const style = {
         position: "absolute",
         top: "50%",
@@ -34,7 +35,7 @@ export default function NewUpdate(){
 
     const onAddFile= (e)=>{
         const files = Array.from(e.target.files)
-        setUploadBtnTxt(files.map(f=> <div>{f.name}</div>))
+        setUploadBtnTxt(files.map(f=> <Chip label={f.name}  />))
     }
     return(
         <Box sx={{...style}}>
@@ -52,6 +53,14 @@ export default function NewUpdate(){
                 />
                 <TextField
                     id="outlined-multiline-static"
+                    label="Subject"
+                    
+                    
+                    sx={{mb:1}}
+                    fullWidth
+                />
+                <TextField
+                    id="outlined-multiline-static"
                     label="Updates"
                     multiline
                     rows={4}
@@ -61,13 +70,15 @@ export default function NewUpdate(){
                 />
                 </CardContent>
                 <CardActions>
-                <Button variant="contained" sx={{mr:1}}>Save & Send Update</Button>
-                <Button variant="outlined" component="label"  >
-                {" "}
-                    <AddIcon /> {uploadBtnTxt}
-                    <input type="file" onChange={onAddFile} hidden multiple/>
-                </Button>
-                    
+                    <Button variant="contained" sx={{mr:1}}>Save & Send Update</Button>
+                        <Button variant="outlined" component="label"  >
+                        {" "}
+                            <AddIcon /> Upload
+                            <input type="file" onChange={onAddFile} hidden multiple/>
+                    </Button>
+                    <Stack direction="row" spacing={1} sx={{ml:1}}>
+                        {uploadBtnTxt}
+                    </Stack>
                 </CardActions>
             </Card>
 

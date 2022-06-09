@@ -105,7 +105,7 @@ export default function Create({closeFn}){
                 <Typography variant="h6">Section C</Typography>
                 <TextField
                   onChange={handleInput}
-                  type="date"
+                  type="datetime-local"
                   label="ETA"
                   name='eta'
                   InputLabelProps={{
@@ -117,7 +117,7 @@ export default function Create({closeFn}){
                   id="outlined-multiline-flexible"
                   label="ETB"
                   name='etb'
-                  type="date"
+                  type="datetime-local"
                   onChange={handleInput}
                   InputLabelProps={{
                     shrink: true
@@ -127,7 +127,7 @@ export default function Create({closeFn}){
                   label="ETC"
                   onChange={handleInput}
                   name='etc'
-                  type="date"
+                  type="datetime-local"
                   InputLabelProps={{
                     shrink: true
                   }}
@@ -136,7 +136,7 @@ export default function Create({closeFn}){
                   onChange={handleInput}
                   label="ETD"
                   name='etd'
-                  type="date"
+                  type="datetime-local"
                   InputLabelProps={{
                     shrink: true
                   }}
