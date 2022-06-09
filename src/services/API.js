@@ -4,7 +4,7 @@ import {
     createUserWithEmailAndPassword,
     updateProfile
   } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc } from 'firebase/firestore/lite';
 
 import { initializeApp } from "firebase/app";
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
@@ -73,6 +73,13 @@ const API = () =>{
             const portcallsCol = collection(db, PORTCALLS_DB);
             const response = await addDoc(portcallsCol, data)
             return response;
+        },
+        deletePortCall:async (portid) =>{
+            const db = getFirestore(app);
+            const portcallsCol = collection(db, PORTCALLS_DB);
+            const portcallDetailsRef = doc(portcallsCol,portid)
+            const portcallDetailsData = await deleteDoc(portcallDetailsRef)
+            return portcallDetailsData
         }
     })
 }

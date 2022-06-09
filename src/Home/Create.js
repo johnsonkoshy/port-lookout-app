@@ -105,7 +105,34 @@ export default function Create({closeFn}){
                 />
               </CardContent>
             </Card>
-        
+            <Card sx={{mb:1}}>
+              <CardContent>
+                <Typography variant="h6">Section C</Typography>
+                <TextField
+                  id="outlined-multiline-flexible"
+                  label="ETB"
+                  name='etb'
+                  onChange={handleInput}
+                />
+                <TextField
+                  label="ETC"
+                  onChange={handleInput}
+                  name='etc'
+                />
+                <TextField
+                  onChange={handleInput}
+                  label="ETD"
+                  name='etd'
+                />
+                <TextField
+                  onChange={handleInput}
+                  label="Agent"
+                  name='agent'
+
+                />
+               
+              </CardContent>
+            </Card>
         <Button variant="contained" onClick={handleSubmit}>Create & Close</Button>
         </Box>
       );

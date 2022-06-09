@@ -45,7 +45,7 @@ export default function Overview({portid, portcallData}) {
               margin="normal"
               disabled
               sx={{width:300}}
-              value={portcallData.id}
+              value={portcallData.id?.toUpperCase()}
             />
             <TextField
               required

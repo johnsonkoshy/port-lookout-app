@@ -9,12 +9,33 @@ import AddIcon from '@mui/icons-material/Add';
 import Modal from "@mui/material/Modal";
 import Create from './Create';
 import API from '../services/API';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const services = new API();
 export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const onDelete = async (portid) => {
+    await services.deletePortCall(portid)
+    await getUpdatePortCall()
+  }
+  const additionColumn=[
+    {
+      field: "deleteBtn",
+      headerName: "Delete",
+      description: "This column has a value getter and is not sortable.",
+      sortable: false,
+      width: 90,
+      editable: false,
+      renderCell: ({ row, value, hasFocus }) => {
+        return (
+          <Button onClick={_=>onDelete(row.id)} children={<DeleteIcon />}/>
+        );
+      }
+    },
+  ]
+  let columnSet= [...columns, ...additionColumn]
   const [portcallList,setPortCallList] = React.useState([]);
   const closeFn = async (shouldClose)=>{
     shouldClose && setOpen(false)
@@ -48,7 +69,7 @@ export default function Home() {
 
       <DataGrid
         rows={portcallList}
-        columns={columns}
+        columns={columnSet}
         pageSize={15}
         rowsPerPageOptions={[5]}
         experimentalFeatures={{ newEditingApi: true }}

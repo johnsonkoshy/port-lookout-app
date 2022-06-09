@@ -1,6 +1,8 @@
 import Link from "@mui/material/Link";
 import { Link as BrowswerLink } from "react-router-dom";
+import Button from "@mui/material/Button";
 import * as React from "react";
+
 
 export default [
   { field: "id", headerName: "Port ID", width: 70 },
@@ -58,6 +60,9 @@ export default [
   {
     field: "agent",
     headerName: "Agent",
-    width: 150
-  }
+    width: 100
+  },
+ 
 ];
+
+
