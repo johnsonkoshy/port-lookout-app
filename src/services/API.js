@@ -5,7 +5,7 @@ import {
     updateProfile
   } from "firebase/auth";
 import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc } from 'firebase/firestore/lite';
-
+import { getStorage, ref, getDownloadURL} from "firebase/storage";
 import { initializeApp } from "firebase/app";
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 
@@ -80,6 +80,12 @@ const API = () =>{
             const portcallDetailsRef = doc(portcallsCol,portid)
             const portcallDetailsData = await deleteDoc(portcallDetailsRef)
             return portcallDetailsData
+        },
+        getPortUpdates: async (portid, updateid) =>{
+            const storage = getStorage(app);
+            const pathReference = ref(storage, `port_updates/${portid}`);
+            const downloadUrl = await getDownloadURL(pathReference)
+            return downloadUrl;
         }
     })
 }
