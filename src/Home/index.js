@@ -11,10 +11,12 @@ import Modal from "@mui/material/Modal";
 import Create from './Create';
 import API from '../services/API';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { GlobalAppContext } from "../context/GlobalAppContext";
 
-const services = new API();
 export default function Home() {
   const [open, setOpen] = React.useState(false);
+  const {token} = React.useContext(GlobalAppContext);
+  const services = new API(token);
   const handleClose = () => setOpen(false);
   const onDelete = async (portid) => {
     await services.deletePortCall(portid)
