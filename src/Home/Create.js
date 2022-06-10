@@ -46,7 +46,7 @@ export default function Create({closeFn}){
             ...style
           }}
           noValidate
-          autoComplete="off"
+          // autoComplete="off"
           onSubmit={handleSubmit}
         >
             <Typography variant="h5">Create New Port Call Form</Typography>

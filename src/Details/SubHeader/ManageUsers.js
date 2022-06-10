@@ -84,12 +84,9 @@ export default function ManageUsers() {
           Users
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
-        <Button variant = "outlined" 
-              onClick={() => {
-                alert('clicked');
-                  }}
-              >
-              Invite Users</Button>
+        <Button variant = "outlined" >
+              Invite Users
+        </Button>
       </Box>
       <DataGrid 
         sx={{
