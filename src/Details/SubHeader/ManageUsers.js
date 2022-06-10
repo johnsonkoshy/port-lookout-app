@@ -79,10 +79,8 @@ export default function ManageUsers() {
   
   return (
     <Box sx={style}>
-      
-
-      <Box sx={{ display: "flex" }}>
-        <Typography id="modal-modal-title" variant="h6" component="h2" color="red">
+      <Box sx={{ display: "flex", mb:2 }}>
+        <Typography id="modal-modal-title" variant="h4"  >
           Users
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
@@ -96,16 +94,14 @@ export default function ManageUsers() {
       <DataGrid 
         sx={{
           boxShadow: 2,
-          border: 2,
-          borderColor: 'primary.light',
-          '& .MuiDataGrid-cell:hover': {
-            color: 'primary.main',
-          },
+          height:400,
+          mb:2
+          
           
         }}
         rows={rowsone}
         columns={columnsone}
-        pageSize = {10}
+        pageSize = {5}
       />
       <DataGrid
         rows={rowstwo}
