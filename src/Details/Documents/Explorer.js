@@ -8,7 +8,7 @@ import FolderIcon from "@mui/icons-material/Folder";
 import Typography from "@mui/material/Typography";
 import File from "./File";
 
-export default function Explorer() {
+export default function Explorer({folders}) {
   return (
     <Box
       sx={{
@@ -23,17 +23,16 @@ export default function Explorer() {
           Folders
         </Typography>
         <Stack spacing={2} direction="row">
-          <Button variant="contained">
-            <FolderIcon /> Folder 1
-          </Button>
-          <Button variant="contained">
-            <FolderIcon />
-            Folder 2
-          </Button>
-          <Button variant="contained">
-            <FolderIcon />
-            Folder 3
-          </Button>
+          {
+            folders.map(folder => {
+              return (
+              <Button variant="contained">
+                < FolderIcon /> {folder.name}
+              </Button>
+            )
+            })
+          }
+          
         </Stack>
       </Box>
       <Box sx={{ m: 1 }}>

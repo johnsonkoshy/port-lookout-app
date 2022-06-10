@@ -146,6 +146,14 @@ const API = () =>{
 
            
         },
+        getAllDocuments:async (portid)=>{
+            const db = getFirestore(app);
+            const storage = getStorage(app);
+            const pathReference = ref(storage, `${PORT_DOCUMENTS_FOLDER}/${portid}`);
+            const {prefixes, items} = await listAll(pathReference)
+            const folders = prefixes.map( folderRef => folderRef.name)
+            return prefixes;
+        }
     })
 }
 

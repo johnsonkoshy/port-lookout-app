@@ -12,21 +12,33 @@ import StarIcon from "@mui/icons-material/Star";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import DeleteIcon from "@mui/icons-material/Delete";
 import API from '../../services/API';
+import FolderNameDialog from './FolderNameDialog';
 
 const services = new API();
 
-export default function Sidebar({portid}) {
-  const createNewFolder = async () => {
-    const t= await services.createPortDocumentFolder('random-folder',portid);
+export default function Sidebar({portid, showDocumentFolders}) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const createNewFolder = async (folderName) => {
+    const t= await services.createPortDocumentFolder(folderName,portid);
+    handleClose();
   }
   const showUpdatesFiles = async () => {
-    
+
   }
+ 
   return (
     <Box sx={{ width: "100%", maxWidth: 250, bgcolor: "background.paper" }}>
       <List>
         <ListItem disablePadding>
-          <ListItemButton onClick={createNewFolder}>
+          <ListItemButton onClick={handleClickOpen}>
             <ListItemIcon>
               <AddIcon />
             </ListItemIcon>
@@ -39,7 +51,7 @@ export default function Sidebar({portid}) {
             <ListItemIcon>
               <FolderIcon />
             </ListItemIcon>
-            <ListItemText primary="Folders" />
+            <ListItemText primary="Folders" onClick={showDocumentFolders}/>
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
@@ -67,6 +79,7 @@ export default function Sidebar({portid}) {
           </ListItemButton>
         </ListItem>
       </List>
+      <FolderNameDialog handleClose={handleClose} open={open} createNewFolder={createNewFolder}/>
     </Box>
   );
 }

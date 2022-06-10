@@ -33,7 +33,7 @@ export default function EmailContent({emailData, portid}) {
       <Stack spacing={2} direction="row" sx={{ p: 2 }}>
         {
           attachments.map(f=>{
-            return <Button variant="outlined" component="a" href={f.url} target="_blank">{f.name}</Button>
+            return <Button variant="outlined" component="a" href={f.url} target="_blank" key={f.id}>{f.name}</Button>
           })
         }
         
