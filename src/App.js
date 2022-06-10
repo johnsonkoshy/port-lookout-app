@@ -9,9 +9,14 @@ import Header from "./Header";
 import Details from "./Details";
 import Login from "./Login";
 import Signup from "./Login/Signup";
-const { initializeAppCheck, ReCaptchaV3Provider } = require("firebase/app-check");
+import { GoogleReCaptchaProvider, GoogleReCaptcha} from 'react-google-recaptcha-v3';
+
+
+const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KEY
+
 export default function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [token, setToken] = React.useState();
 
   const theme = React.useMemo(
     () =>
@@ -23,17 +28,21 @@ export default function App() {
     [prefersDarkMode]
   );
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline enableColorScheme />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="details/:portid" element={<Details />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
-        </Routes>
-      </ThemeProvider>
-    </BrowserRouter>
+    <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_KEY}>
+      <GoogleReCaptcha onVerify={t => setToken(t)} />
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline enableColorScheme />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="details/:portid" element={<Details />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
+    </GoogleReCaptchaProvider>
+    
   );
 }

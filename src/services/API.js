@@ -11,7 +11,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
-const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KET
+const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KEY
 
 
 const API = () =>{

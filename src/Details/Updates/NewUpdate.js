@@ -13,7 +13,15 @@ import CardActions from "@mui/material/CardActions";
 import { styled } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import Chip from '@mui/material/Chip';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import ListSubheader from '@mui/material/ListSubheader';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 const services = new API();
 
 
@@ -21,7 +29,7 @@ export default function NewUpdate({portid, afterCreate}){
     const [attachedFilesChips, setAttachedFilesChips] = React.useState("")
     const [formInput, setFormInput] = React.useState({});
     const [attachments,setAttachments] = React.useState()
-
+    const [isTemplate, setIsTemplate] = React.useState(false)
     const handleInput = evt => {
         const name = evt.target.name;
         const newValue = evt.target.value;
@@ -52,49 +60,98 @@ export default function NewUpdate({portid, afterCreate}){
         setAttachedFilesChips(files.map(f=> <Chip label={f.name}  />))
         setAttachments(files)
     }
+    const onToggleTemplate = (e)=>{
+        setIsTemplate(e.target.checked)
+    }
+
+    React.useEffect(()=>{
+        if(isTemplate){
+
+        }
+    },[isTemplate])
     return(
         <Box sx={{...style}}>
             <Typography  variant="h6" sx={{mb:1, mt:1}}>Create a new update</Typography>
             
             <Card>
                 <CardContent>
-                <TextField
-                    id="outlined-multiline-static"
-                    label="To"
-                    onChange={handleInput}
-                    name={"to"}
-                    sx={{mb:1}}
-                    fullWidth
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Subject"
-                    onChange={handleInput}
-                    name={"subject"}
-                    sx={{mb:1}}
-                    fullWidth
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Updates"
-                    name={"updates"}
-                    multiline
-                    rows={4}
-                    sx={{mb:1}}
-                    onChange={handleInput}
-                    fullWidth
-                />
+                    <FormControl sx={{ mb: 1, minWidth: 120 }} fullWidth>
+                        <InputLabel htmlFor="grouped-select">Template</InputLabel>
+                        <Select defaultValue="" id="grouped-select" label="Grouping">
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                       
+                        <MenuItem value={1}>Template 1</MenuItem>
+                        <MenuItem value={2}>Template 2</MenuItem>
+                        
+                        <MenuItem value={3}>Template 3</MenuItem>
+                        <MenuItem value={4}>Template 4</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <Divider sx={{mb:2,mt:1}}/>
+                    
+                    {
+                        isTemplate 
+                        ?
+                        <TextField
+                            id="outlined-multiline-static"
+                            label={ "Template Name"}
+                            onChange={handleInput}
+                            name={ "templateName" }
+                            sx={{mb:1}}
+                            fullWidth
+                        />
+                        :
+                        <TextField
+                            id="outlined-multiline-static"
+                            label={"To"}
+                            onChange={handleInput}
+                            name={"to"}
+                            sx={{mb:1}}
+                            fullWidth
+                        />
+                    }
+                    <TextField
+                        id="outlined-multiline-static"
+                        label="Subject"
+                        onChange={handleInput}
+                        name={"subject"}
+                        sx={{mb:1}}
+                        fullWidth
+                    />
+                    <TextField
+                        id="outlined-multiline-static"
+                        label="Updates"
+                        name={"updates"}
+                        multiline
+                        rows={4}
+                        sx={{mb:1}}
+                        onChange={handleInput}
+                        fullWidth
+                    />
+
+                    
+                    <FormGroup>
+                        <FormControlLabel control={<Checkbox  onChange={onToggleTemplate}/>} label="Save as template" />
+                        
+                    </FormGroup>
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained" sx={{mr:1}} onClick={onSave}>Send Update</Button>
-                    <Button variant="outlined" component="label"  >
-                        {" "}
-                        <AddIcon /> Upload
-                        <input type="file" onChange={onAddFile} hidden multiple/>
-                    </Button>
-                    <Stack direction="row" spacing={1} sx={{ml:1, mr:1}}>
-                        {attachedFilesChips}
-                    </Stack>
+                    <Button variant="contained" sx={{mr:1}} onClick={onSave}>{isTemplate ? "Save as template": "Send Update" }</Button>
+                    { !isTemplate && 
+                        <>
+                            <Button variant="outlined" component="label"  >
+                                {" "}
+                                <AddIcon /> Upload
+                                <input type="file" onChange={onAddFile} hidden multiple/>
+                            </Button>
+                            <Stack direction="row" spacing={1} sx={{ml:1, mr:1}}>
+                                {attachedFilesChips}
+                            </Stack>
+                        </>
+                    }
+                    
                     <Divider orientation="vertical" flexItem sx={{ml:1, mr:1}}/>
                     <Button variant="outlined" color="error" onClick={afterCreate}>Cancel</Button>
                 </CardActions>
