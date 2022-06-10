@@ -8,7 +8,7 @@ import FolderIcon from "@mui/icons-material/Folder";
 import Typography from "@mui/material/Typography";
 import File from "./File";
 
-export default function FullWidthTextField() {
+export default function Explorer() {
   return (
     <Box
       sx={{

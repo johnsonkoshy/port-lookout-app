@@ -5,7 +5,7 @@ import {
     updateProfile
   } from "firebase/auth";
 import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc, query, where  } from 'firebase/firestore/lite';
-import { getStorage, ref, getDownloadURL,uploadBytes,listAll} from "firebase/storage";
+import { getStorage, ref, getDownloadURL,uploadBytes,listAll, uploadString, deleteObject} from "firebase/storage";
 import { initializeApp } from "firebase/app";
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 
@@ -21,8 +21,14 @@ const API = () =>{
         measurementId: "G-W8EQ76ML8Q"
     };
     const app = initializeApp(firebaseConfig);
+
     const PORTCALLS_DB= "portcalls"
-    const PORT_UPDATES_DB="port_updates"
+    
+    const PORT_UPDATES_DB="port_updates";
+    const PORT_UPDATES_FOLDER="updates";
+    
+    const PORT_DOCUMENTS_DB="port_documents";
+    const PORT_DOCUMENTS_FOLDER="documents";
     return({
         signUp:async (email, password, firstName, lastName) => {
             let isSuccess=false;
@@ -91,7 +97,7 @@ const API = () =>{
                 if(!(files && files.length>0))return false;
                 const storage = getStorage(app);
                 files.map(async file => {
-                    const storeageFileRef = ref(storage, `documents/${portid}/${updates_id}/${file.name}`);
+                    const storeageFileRef = ref(storage, `${PORT_UPDATES_FOLDER}/${portid}/${updates_id}/${file.name}`);
                     await uploadBytes(storeageFileRef, file)
                 })
                 
@@ -113,7 +119,7 @@ const API = () =>{
         },
         getPortUpdateFiles: async (portid, update_id) =>{
             const storage = getStorage(app);
-            const pathReference = ref(storage, `documents/${portid}/${update_id}`);
+            const pathReference = ref(storage, `${PORT_UPDATES_FOLDER}/${portid}/${update_id}`);
             const {items} = await listAll(pathReference)
             
             if(items && items.length){
@@ -127,7 +133,19 @@ const API = () =>{
             
             return items;
         },
-        
+        createPortDocumentFolder:async (folderName, portid)=>{
+            const db = getFirestore(app);
+            const storage = getStorage(app);
+            const storeageFolderRef = ref(storage, `${PORT_DOCUMENTS_FOLDER}/${portid}/${folderName}/_ignore`);
+            const message = '_ignore';
+            const didCreateFolder= await uploadString(storeageFolderRef, message)
+            //const {ref,...result} = didCreateFolder;
+            //await deleteObject(ref)
+
+
+
+           
+        },
     })
 }
 

@@ -40,7 +40,7 @@ export default function Updates({portid}) {
 
   return (
     <Box>
-      <Button variant="contained" onClick={handleOpen}>New Update</Button>
+      <Button variant="contained" onClick={handleOpen} sx={{mb:1}}>New Update</Button>
       <Box sx={{ display: "flex" }}>
         <EmailList emailList={updates} openEmail={openEmail}/>
         <Divider orientation="vertical" flexItem />

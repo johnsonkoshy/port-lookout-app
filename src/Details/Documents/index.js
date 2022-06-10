@@ -7,7 +7,7 @@ import API from '../../services/API'
 
 const services = new API();
 
-export default function Documents() {
+export default function Documents({portid}) {
   React.useEffect(()=>{
     (async ()=>{
       const url = await services.getPortUpdates('1234')
@@ -16,7 +16,7 @@ export default function Documents() {
   },[])
   return (
     <Box sx={{ display: "flex" }}>
-      <Sidebar />
+      <Sidebar portid={portid}/>
       <Divider orientation="vertical" flexItem />
       <Explorer />
     </Box>
