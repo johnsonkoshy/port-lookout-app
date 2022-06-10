@@ -29,9 +29,6 @@ export default function FolderName({portid, open, handleClose,createNewFolder}) 
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          Specify a folder name
-        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <TextField
