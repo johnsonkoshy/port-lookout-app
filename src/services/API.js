@@ -11,6 +11,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
+const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KET
 
 
 const API = () =>{
@@ -25,7 +26,7 @@ const API = () =>{
     };
     const app = initializeApp(firebaseConfig);
     const appCheck = initializeAppCheck(app, {
-        provider: new ReCaptchaV3Provider('6LdlnFsgAAAAAAnkwAiShJalSn9rasnH7fBfQpGp'),
+        provider: new ReCaptchaV3Provider(RECAPTCHA_KEY),
         isTokenAutoRefreshEnabled: true
     });
     const PORTCALLS_DB= "portcalls"
