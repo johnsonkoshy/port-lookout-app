@@ -41,16 +41,17 @@ export default function ManageUsers() {
     { field: 'permission', headerName: 'Permission', width: 170 },
     { field: 'lastlogin', headerName: 'Last Login', width: 170 },
     { field: 'action', headerName: 'Action', width: 170 },
+    { field: 'invitation', headerName: 'Invite', width: 170 },
   ];
     
   const rowsone = [
-    {id: 'McMurray Bonnie', email: 'Gourav', permission: 'owner', lastlogin: 'a year ago' },
-    {id: 'Gideon, Grey', email: 12, permission: 'owner', lastlogin: 'a year ago' },
-    {id: 'Braddock, Betsy', email: 43, permission: 'instructor', lastlogin: 'a year ago' },
-    {id: 'Matt, Murdock', email: 41, permission: 'reviewer', lastlogin: '2 months ago' },
-    {id: 'Blaire, Alison', email: 34, permission: 'presenter', lastlogin: '2 months ago' },
-    {id: 'McCoy, Hank', email: 73, permission: 'presenter', lastlogin: '4 months ago' },
-    {id: 'Summers, Scott', email: 61, permission: 'presenter', lastlogin: 'a year ago' },
+    {id: 'McMurray Bonnie', email: 'Gourav', permission: 'owner', lastlogin: 'a year ago', invitation: 'Accepted' },
+    {id: 'Gideon, Grey', email: 12, permission: 'owner', lastlogin: 'a year ago' , invitation: 'Accepted'},
+    {id: 'Braddock, Betsy', email: 43, permission: 'instructor', lastlogin: 'a year ago' , invitation: 'Accepted'},
+    {id: 'Matt, Murdock', email: 41, permission: 'reviewer', lastlogin: '2 months ago' , invitation: 'Accepted'},
+    {id: 'Blaire, Alison', email: 34, permission: 'presenter', lastlogin: '2 months ago' , invitation: 'Accepted'},
+    {id: 'McCoy, Hank', email: 73, permission: 'presenter', lastlogin: '4 months ago' , invitation: 'Pending'},
+    {id: 'Summers, Scott', email: 61, permission: 'presenter', lastlogin: 'a year ago' , invitation: 'Pending'},
   ];
 
 
@@ -79,7 +80,7 @@ export default function ManageUsers() {
   
   return (
     <Box sx={style}>
-      <Box sx={{ display: "flex", mb:2 }}>
+      <Box sx={{ display: "flex", mb:2  ,}}>
         <Typography id="modal-modal-title" variant="h4"  >
           Users
         </Typography>
@@ -90,20 +91,13 @@ export default function ManageUsers() {
       </Box>
       <DataGrid 
         sx={{
-          boxShadow: 2,
-          height:400,
-          mb:2
-          
-          
+          height:'calc(98% - 50px)',
         }}
         rows={rowsone}
         columns={columnsone}
-        pageSize = {5}
+        pageSize = {10}
       />
-      <DataGrid
-        rows={rowstwo}
-        columns={columnstwo}
-      />
+      
     </Box>
   );
 }

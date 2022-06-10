@@ -9,7 +9,7 @@ import Header from "./Header";
 import Details from "./Details";
 import Login from "./Login";
 import Signup from "./Login/Signup";
-
+const { initializeAppCheck, ReCaptchaV3Provider } = require("firebase/app-check");
 export default function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 

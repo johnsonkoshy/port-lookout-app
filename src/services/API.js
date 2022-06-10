@@ -7,6 +7,9 @@ import {
 import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc, query, where  } from 'firebase/firestore/lite';
 import { getStorage, ref, getDownloadURL,uploadBytes,listAll, uploadString, deleteObject} from "firebase/storage";
 import { initializeApp } from "firebase/app";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+
+
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 
 
@@ -21,7 +24,10 @@ const API = () =>{
         measurementId: "G-W8EQ76ML8Q"
     };
     const app = initializeApp(firebaseConfig);
-
+    const appCheck = initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider('6LdlnFsgAAAAACjFtt7hLwlAYYMMomLwSV1IdhyS'),
+        isTokenAutoRefreshEnabled: true
+    });
     const PORTCALLS_DB= "portcalls"
     
     const PORT_UPDATES_DB="port_updates";
