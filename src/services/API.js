@@ -25,7 +25,7 @@ const API = () =>{
     };
     const app = initializeApp(firebaseConfig);
     const appCheck = initializeAppCheck(app, {
-        provider: new ReCaptchaV3Provider('6LdlnFsgAAAAACjFtt7hLwlAYYMMomLwSV1IdhyS'),
+        provider: new ReCaptchaV3Provider('6LdlnFsgAAAAAAnkwAiShJalSn9rasnH7fBfQpGp'),
         isTokenAutoRefreshEnabled: true
     });
     const PORTCALLS_DB= "portcalls"
@@ -139,12 +139,16 @@ const API = () =>{
             
             return items;
         },
-        createPortDocumentFolder:async (folderName, portid)=>{
+        createPortDocumentFolder:async (folderName, portid,folderPath)=>{
             const db = getFirestore(app);
             const storage = getStorage(app);
-            const storeageFolderRef = ref(storage, `${PORT_DOCUMENTS_FOLDER}/${portid}/${folderName}/_ignore`);
-            const message = '_ignore';
-            const didCreateFolder= await uploadString(storeageFolderRef, message)
+            const placeholderFile = '_ignore';
+            let requestFolder = folderPath ? folderPath : `${PORT_DOCUMENTS_FOLDER}/${portid}`;
+            requestFolder = `${requestFolder}/${folderName}/${placeholderFile}`;
+
+            const storeageFolderRef = ref(storage, requestFolder);
+            
+            const didCreateFolder= await uploadString(storeageFolderRef, placeholderFile)
             //const {ref,...result} = didCreateFolder;
             //await deleteObject(ref)
 
@@ -152,13 +156,15 @@ const API = () =>{
 
            
         },
-        getAllDocuments:async (portid)=>{
+        getAllDocuments:async (portid, folderPath='')=>{
+
             const db = getFirestore(app);
             const storage = getStorage(app);
-            const pathReference = ref(storage, `${PORT_DOCUMENTS_FOLDER}/${portid}`);
-            const {prefixes, items} = await listAll(pathReference)
-            const folders = prefixes.map( folderRef => folderRef.name)
-            return prefixes;
+            const requestFolder = folderPath ? folderPath : `${PORT_DOCUMENTS_FOLDER}/${portid}`;
+            const pathReference = ref(storage, requestFolder);
+            const folderItems = await listAll(pathReference)
+            
+            return folderItems;
         }
     })
 }

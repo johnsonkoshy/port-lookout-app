@@ -16,7 +16,7 @@ import FolderNameDialog from './FolderNameDialog';
 
 const services = new API();
 
-export default function Sidebar({portid, showDocumentFolders}) {
+export default function Sidebar({portid, showDocumentFolders, currentFolderPath}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -27,7 +27,7 @@ export default function Sidebar({portid, showDocumentFolders}) {
     setOpen(false);
   };
   const createNewFolder = async (folderName) => {
-    const t= await services.createPortDocumentFolder(folderName,portid);
+    const t= await services.createPortDocumentFolder(folderName,portid,currentFolderPath);
     handleClose();
   }
   const showUpdatesFiles = async () => {
@@ -47,11 +47,11 @@ export default function Sidebar({portid, showDocumentFolders}) {
         </ListItem>
         <Divider />
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={_=>showDocumentFolders()}>
             <ListItemIcon>
               <FolderIcon />
             </ListItemIcon>
-            <ListItemText primary="Folders" onClick={showDocumentFolders}/>
+            <ListItemText primary="Home" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>

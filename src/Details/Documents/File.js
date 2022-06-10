@@ -5,25 +5,55 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import FileOpenIcon from '@mui/icons-material/FileOpen';
 
-
-export default function File() {
+export default function File({name, downloadUrl}) {
+  const fileTypeIcon = (fileName)=>{
+    switch(fileName.split('.').pop()){
+      case 'pdf':
+        return <FileOpenIcon />
+      case 'doc':
+        return <FileOpenIcon />
+      case 'docx':
+        return <FileOpenIcon />
+      case 'xls':
+        return <FileOpenIcon />
+      case 'xlsx':
+        return <FileOpenIcon />
+      case 'ppt':
+        return <FileOpenIcon />
+      case 'pptx':
+        return <FileOpenIcon />
+      case 'txt':
+        return <FileOpenIcon />
+      case 'jpg':
+        return <FileOpenIcon />
+      case 'jpeg':
+        return <FileOpenIcon />
+      case 'png':
+        return <FileOpenIcon />
+    
+      default:
+        return <FileOpenIcon />
+    }
+  }
   return (
-    <Card sx={{ maxWidth: 275 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          The preview of the file shows here
-        </Typography>
+    <Card sx={{ maxWidth: 100 }}>
+      <CardContent sx={{height:'75%'}}>
+        <Box sx={{height:'100%', width:'100%', display:'flex', justifyContent:"center", alignItems:"center"}}>
+          {
+            fileTypeIcon(name)
+          }
+        </Box>
+       
 
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae
-          leo ac felis auctor fermentum.
-        </Typography>
-        <Typography variant="body2"></Typography>
+        
+        
       </CardContent>
-      <CardActions sx={{backgroundColor:'primary.main', }}>
-        <Button size="small" sx={{ textTransform: "none",color:'primary.contrastText' }}>
-          Vessel_Registry.docx
+      <CardActions sx={{backgroundColor:'primary.main', height:'25%'}}>
+        <Button size="small" variant="a" href={downloadUrl} sx={{ textTransform: "none",color:'primary.contrastText' }}>
+          {name}
         </Button>
       </CardActions>
     </Card>

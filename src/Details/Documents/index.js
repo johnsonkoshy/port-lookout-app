@@ -8,22 +8,24 @@ import API from '../../services/API'
 const services = new API();
 
 export default function Documents({portid}) {
-  const [folders, setFolders] = React.useState([]);
+  const [folderData, setFolderData] = React.useState({});
+  const [currentFolderPath, setCurrentFolderPath] = React.useState("");
   React.useEffect(()=>{
     (async ()=>{
-      const url = await services.getPortUpdates('1234')
-      console.log(url) 
+      const url = await showDocumentFolders();
+      
     })()
   },[])
-  const showDocumentFolders = async () => {
-    const foldersRes = await services.getAllDocuments(portid)
-    setFolders(foldersRes);
+  const showDocumentFolders = async (folderPath) => {
+    const foldersRes = await services.getAllDocuments(portid, folderPath);
+    setFolderData(foldersRes);
+    setCurrentFolderPath(folderPath);
   }
   return (
     <Box sx={{ display: "flex" }}>
-      <Sidebar portid={portid} showDocumentFolders={showDocumentFolders}/>
+      <Sidebar portid={portid} showDocumentFolders={showDocumentFolders} currentFolderPath={currentFolderPath}/>
       <Divider orientation="vertical" flexItem />
-      <Explorer folders={folders}/>
+      <Explorer folders={folderData} showDocumentFolders={showDocumentFolders}/>
     </Box>
   );
 }

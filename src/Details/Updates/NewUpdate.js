@@ -54,8 +54,8 @@ export default function NewUpdate({portid, afterCreate}){
     }
     return(
         <Box sx={{...style}}>
-            <Typography>Create a new update</Typography>
-            <Divider  sx={{mb:1,mt:1}}/>
+            <Typography  variant="h6" sx={{mb:1, mt:1}}>Create a new update</Typography>
+            
             <Card>
                 <CardContent>
                 <TextField
