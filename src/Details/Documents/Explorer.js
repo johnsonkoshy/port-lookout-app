@@ -83,7 +83,7 @@ export default function Explorer({folders,showDocumentFolders}) {
                   const { name, fullPath } = folder;
                   return (
                   <Button variant="contained" onClick={_=>openFolder(fullPath)} key={name} sx={{textTransform: "unset" }}>
-                    < FolderIcon /> {name}
+                    < FolderIcon sx={{mr:1}}/> {name}
                   </Button>
                 )
                 })
