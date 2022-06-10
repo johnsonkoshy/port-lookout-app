@@ -11,13 +11,22 @@ import FolderIcon from "@mui/icons-material/Folder";
 import StarIcon from "@mui/icons-material/Star";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import DeleteIcon from "@mui/icons-material/Delete";
+import API from '../../services/API';
 
-export default function BasicList() {
+const services = new API();
+
+export default function Sidebar({portid}) {
+  const createNewFolder = async () => {
+    const t= await services.createPortDocumentFolder('random-folder',portid);
+  }
+  const showUpdatesFiles = async () => {
+    
+  }
   return (
     <Box sx={{ width: "100%", maxWidth: 250, bgcolor: "background.paper" }}>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={createNewFolder}>
             <ListItemIcon>
               <AddIcon />
             </ListItemIcon>
@@ -41,12 +50,12 @@ export default function BasicList() {
             <ListItemText primary="Starred" />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding>
+        <ListItem disablePadding onClick={showUpdatesFiles}>
           <ListItemButton>
             <ListItemIcon>
               <AccessTimeFilledIcon />
             </ListItemIcon>
-            <ListItemText primary="Recent" />
+            <ListItemText primary="Updates" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
