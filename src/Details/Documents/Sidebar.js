@@ -23,12 +23,13 @@ export default function Sidebar({portid, showFolders, currentFolderPath}) {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleCloseDialog = () => {
     setOpen(false);
   };
   const createNewFolder = async (folderName) => {
     const t= await services.createPortDocumentFolder(folderName,portid,currentFolderPath);
-    handleClose();
+    await showFolders(currentFolderPath);
+    handleCloseDialog();
   }
   const showUpdatesFolders = async (e) => {
     console.log(e)
@@ -98,7 +99,7 @@ export default function Sidebar({portid, showFolders, currentFolderPath}) {
           </ListItemButton>
         </ListItem>
       </List>
-      <FolderNameDialog handleClose={handleClose} open={open} createNewFolder={createNewFolder}/>
+      <FolderNameDialog handleClose={handleCloseDialog} open={open} createNewFolder={createNewFolder}/>
     </Box>
   );
 }

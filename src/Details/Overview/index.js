@@ -7,6 +7,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import PortTimeline from "./PortTimeline";
 import ToDo from "./ToDo";
@@ -149,6 +150,7 @@ export default function Overview({portid, portcallData}) {
           <Card sx={{ m: 1 }}>
             <CardContent sx={{display:'flex'}}>
               <PortTimeline />
+              <Divider orientation="vertical" flexItem sx={{mr:2, ml:2}}/>
               <ToDo />
             </CardContent>
           </Card>

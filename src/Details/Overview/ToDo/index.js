@@ -21,17 +21,18 @@ const TodoApp = React.memo(() => {
 
   return (
     <Layout>
+      <TodoList
+        items={todos}
+        onItemCheck={checkTodo}
+        onItemRemove={removeTodo}
+      />
       <AddTodo
         inputValue={inputValue}
         onInputChange={changeInput}
         onButtonClick={clearInputAndAddTodo}
         onInputKeyPress={(event) => keyInput(event, clearInputAndAddTodo)}
       />
-      <TodoList
-        items={todos}
-        onItemCheck={checkTodo}
-        onItemRemove={removeTodo}
-      />
+      
     </Layout>
   );
 });

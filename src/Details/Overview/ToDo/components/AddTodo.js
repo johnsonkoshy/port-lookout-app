@@ -3,7 +3,7 @@ import { TextField, Paper, Button, Grid } from "@mui/material";
 
 const AddTodo = React.memo(
   ({ inputValue, onInputChange, onInputKeyPress, onButtonClick }) => (
-    <Paper style={{ display:'flex', margin: 16, padding: 16 }}>
+    <Paper elevation={0} style={{ display:'flex', margin: 2, padding: 2 }}>
       <TextField
             placeholder="Add Todo here"
             value={inputValue}
@@ -13,8 +13,8 @@ const AddTodo = React.memo(
           />
      <Button
             
-           
-            variant="outlined"
+           sx={{ml:1, p:0}}
+            variant="contained"
             onClick={onButtonClick}
           >
             +

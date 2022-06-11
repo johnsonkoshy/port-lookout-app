@@ -4,7 +4,7 @@ import { Typography , Paper, Toolbar, AppBar} from '@mui/material';
 
 const Layout = React.memo(({ children }) => (
   <Paper
-    elevation={2}
+    elevation={0}
     style={{ padding: 0, margin: 0}}
   >
     {children}
