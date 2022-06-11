@@ -56,11 +56,7 @@ export default function Explorer({folders,showDocumentFolders, loading}) {
         p: 1
       }}
     >
-      {loading &&
-        <Box sx={{ width: '100%' }}>
-          <LinearProgress />
-        </Box>
-      }
+      
 
       {
         !folders.diableBreadcrumbs && (hasFolders || hasFiles) &&

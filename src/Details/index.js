@@ -31,7 +31,9 @@ export default function Details() {
       setPortcallData({...returnedData})
     })()
   },[])
-
+  const styles={
+    padding: 1,
+  }
   return (
     <Box sx={{ width: "100%", p: 2 }}>
       <SubHeader portcallData={portcallData}/>
@@ -45,10 +47,10 @@ export default function Details() {
             <Tab label="Other Port Information" value="5" />
           </TabList>
         </Box>
-        <TabPanel value="1" children={<Overview portid={portid} portcallData={portcallData}/>} />
-        <TabPanel value="2" children={<Updates portid={portid}/>} />
-        <TabPanel value="3" children={<Documents portid={portid}/>} />
-        <TabPanel value="4" children={<StatementOfFacts />} />
+        <TabPanel value="1" children={<Overview portid={portid} portcallData={portcallData} sx={styles}/>} />
+        <TabPanel value="2" children={<Updates portid={portid}/>} sx={styles}/>
+        <TabPanel value="3" children={<Documents portid={portid}/>} sx={styles}/>
+        <TabPanel value="4" children={<StatementOfFacts />} sx={styles} />
       </TabContext>
     </Box>
   );

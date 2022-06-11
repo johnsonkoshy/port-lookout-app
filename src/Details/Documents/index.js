@@ -4,6 +4,7 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import Explorer from "./Explorer";
 import API from '../../services/API'
+import LinearProgress from '@mui/material/LinearProgress';
 
 const services = new API();
 
@@ -20,7 +21,7 @@ export default function Documents({portid}) {
   const showFolders = async (folderPath, baseFolder, callBack) => {
     setLoading(true);
     const emptyFolder = {items:[], prefixes:[], disableBreadcrumbs:false};
-    setFolderData(emptyFolder);
+    !folderPath && setFolderData(emptyFolder);
     let foldersRes = await services.getAllDocuments(portid, folderPath, baseFolder);
     if (callBack) {
       foldersRes = await callBack(foldersRes);
@@ -32,10 +33,16 @@ export default function Documents({portid}) {
     
   }
   return (
-    <Box sx={{ display: "flex" }}>
-      <Sidebar portid={portid} showFolders={showFolders} currentFolderPath={currentFolderPath}/>
-      <Divider orientation="vertical" flexItem />
-      <Explorer folders={folderData} showDocumentFolders={showFolders} loading={loading}/>
+    <>
+      <Box sx={{ width: '100%', mb:1 }}>
+          <LinearProgress sx={{visibility:loading ? 'visible' : 'hidden'}}/>
+      </Box>
+      <Box sx={{ display: "flex" }}>
+        <Sidebar portid={portid} showFolders={showFolders} currentFolderPath={currentFolderPath}/>
+        <Divider orientation="vertical" flexItem />
+        <Explorer folders={folderData} showDocumentFolders={showFolders} loading={loading}/>
     </Box>
+    </>
+   
   );
 }
