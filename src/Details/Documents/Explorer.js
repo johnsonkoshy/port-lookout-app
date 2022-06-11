@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import File from "./File";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
-
-export default function Explorer({folders,showDocumentFolders}) {
+import LinearProgress from '@mui/material/LinearProgress';
+export default function Explorer({folders,showDocumentFolders, loading}) {
   const openFolder = async (folderPath, path) => {
    
     await showDocumentFolders(folderPath);
@@ -56,6 +56,12 @@ export default function Explorer({folders,showDocumentFolders}) {
         p: 1
       }}
     >
+      {loading &&
+        <Box sx={{ width: '100%' }}>
+          <LinearProgress />
+        </Box>
+      }
+
       {
         !folders.diableBreadcrumbs && (hasFolders || hasFiles) &&
         (

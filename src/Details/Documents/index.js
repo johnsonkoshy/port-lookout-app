@@ -9,6 +9,7 @@ const services = new API();
 
 export default function Documents({portid}) {
   const [folderData, setFolderData] = React.useState({});
+  const [loading,setLoading] = React.useState(false);
   const [currentFolderPath, setCurrentFolderPath] = React.useState("");
   React.useEffect(()=>{
     (async ()=>{
@@ -17,6 +18,9 @@ export default function Documents({portid}) {
     })()
   },[])
   const showFolders = async (folderPath, baseFolder, callBack) => {
+    setLoading(true);
+    const emptyFolder = {items:[], prefixes:[], disableBreadcrumbs:false};
+    setFolderData(emptyFolder);
     let foldersRes = await services.getAllDocuments(portid, folderPath, baseFolder);
     if (callBack) {
       foldersRes = await callBack(foldersRes);
@@ -24,13 +28,14 @@ export default function Documents({portid}) {
     
     setFolderData(foldersRes);
     setCurrentFolderPath(folderPath);
+    setLoading(false);
     
   }
   return (
     <Box sx={{ display: "flex" }}>
       <Sidebar portid={portid} showFolders={showFolders} currentFolderPath={currentFolderPath}/>
       <Divider orientation="vertical" flexItem />
-      <Explorer folders={folderData} showDocumentFolders={showFolders}/>
+      <Explorer folders={folderData} showDocumentFolders={showFolders} loading={loading}/>
     </Box>
   );
 }
