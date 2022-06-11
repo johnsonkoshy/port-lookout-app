@@ -13,7 +13,7 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import DeleteIcon from "@mui/icons-material/Delete";
 import API from '../../services/API';
 import FolderNameDialog from './FolderNameDialog';
-
+import HomeIcon from '@mui/icons-material/Home';
 const services = new API();
 
 export default function Sidebar({portid, showFolders, currentFolderPath}) {
@@ -68,7 +68,7 @@ export default function Sidebar({portid, showFolders, currentFolderPath}) {
         <ListItem disablePadding>
           <ListItemButton onClick={_=>showFolders()}>
             <ListItemIcon>
-              <FolderIcon />
+              <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItemButton>
