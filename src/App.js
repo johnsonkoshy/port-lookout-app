@@ -29,9 +29,7 @@ export default function App() {
     [prefersDarkMode]
   );
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_KEY}>
-      <GoogleReCaptcha onVerify={t => setToken(t)} />
-      <BrowserRouter>
+    <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline enableColorScheme />
           <Header />
@@ -43,7 +41,6 @@ export default function App() {
             </Routes>
         </ThemeProvider>
       </BrowserRouter>
-    </GoogleReCaptchaProvider>
     
   );
 }

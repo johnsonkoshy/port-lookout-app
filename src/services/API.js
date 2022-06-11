@@ -15,8 +15,8 @@ const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KEY
 
 
-const API = (token) =>{
-    // const {token} = useContext(GlobalAppContext);
+const API = () =>{
+    
     const firebaseConfig = {
         apiKey: FIREBASE_API_KEY,
         authDomain: "port-lookout-app-1.firebaseapp.com",
@@ -27,14 +27,10 @@ const API = (token) =>{
         measurementId: "G-W8EQ76ML8Q"
     };
     const app = initializeApp(firebaseConfig);
-    // try{
-    //     const appCheck = initializeAppCheck(app, {
-    //         provider: new ReCaptchaV3Provider(token),
-    //         isTokenAutoRefreshEnabled: true
-    //     });
-    // }catch(e){
-    //     console.log(e)
-    // }
+    const appCheck = initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(RECAPTCHA_KEY),
+        isTokenAutoRefreshEnabled: true
+    });
     
     const PORTCALLS_DB= "portcalls"
     
@@ -165,8 +161,6 @@ const API = (token) =>{
            
         },
         getAllDocuments:async (portid, folderPath='')=>{
-
-            const db = getFirestore(app);
             const storage = getStorage(app);
             const requestFolder = folderPath ? folderPath : `${PORT_DOCUMENTS_FOLDER}/${portid}`;
             const pathReference = ref(storage, requestFolder);
