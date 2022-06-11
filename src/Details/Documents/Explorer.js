@@ -27,7 +27,6 @@ export default function Explorer({folders,showDocumentFolders}) {
       if(!hasFolders) pathArray.pop();
       const folderPath=pathArray.reduce((acc,curr,idx)=>{
         if(idx >= crumbIdx) return acc;
-        if(!acc) acc= "";
         return acc+"/"+curr;
       }, "")
       await showDocumentFolders(homePath+folderPath);

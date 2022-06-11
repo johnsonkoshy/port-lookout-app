@@ -39,6 +39,12 @@ const API = () =>{
     
     const PORT_DOCUMENTS_DB="port_documents";
     const PORT_DOCUMENTS_FOLDER="documents";
+
+    const getDbCollection = (collectionName) => {
+        const db = getFirestore(app);
+        return collection(db, collectionName);
+    }
+
     return({
         signUp:async (email, password, firstName, lastName) => {
             let isSuccess=false;
@@ -72,8 +78,8 @@ const API = () =>{
             }
         },
         getPortCalls:async () =>{
-            const db = getFirestore(app);
-            const portcallsCol = collection(db, PORTCALLS_DB);
+            
+            const portcallsCol = getDbCollection(PORTCALLS_DB);
             const portcallSnapshot = await getDocs(portcallsCol);
             const portcallList = portcallSnapshot.docs.map(doc => ({...doc.data(), id:doc.id}));
             return portcallList;
@@ -118,12 +124,9 @@ const API = () =>{
             return response;
         },
         getPortUpdates:async (portid)=>{
-            const db = getFirestore(app);
-            const port_updates_col = collection(db, PORT_UPDATES_DB);
-
-
-            const q = query(port_updates_col, where("portid", "==", portid));
-            const update_response = await getDocs(q)
+            const port_updates_col = getDbCollection(PORT_UPDATES_DB);
+            const portid_query = query(port_updates_col, where("portid", "==", portid));
+            const update_response = await getDocs(portid_query)
             const update_list = update_response.docs.map(doc => ({...doc.data(), id:doc.id}));
             return update_list;
         },

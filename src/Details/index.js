@@ -18,12 +18,12 @@ const services = new API();
 
 
 export default function Details() {
-  const [value, setValue] = React.useState("1");
+  const [tab, setTab] = React.useState("1");
   const [portcallData, setPortcallData] = React.useState({})
 
   const {portid} = useParams();
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChangeTab = (event, newValue) => {
+    setTab(newValue);
   };
   React.useEffect(()=>{
     (async () => {
@@ -35,9 +35,9 @@ export default function Details() {
   return (
     <Box sx={{ width: "100%", p: 2 }}>
       <SubHeader portcallData={portcallData}/>
-      <TabContext value={value}>
+      <TabContext value={tab}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <TabList onChange={handleChangeTab} aria-label="lab API tabs example">
             <Tab label="Overview" value="1" />
             <Tab label="Updates" value="2" />
             <Tab label="Documents" value="3" />
