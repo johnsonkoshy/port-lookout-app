@@ -9,13 +9,6 @@ import TabList from "@mui/lab/TabList";
 
 
 export default function ManageUsers() {
-  const [value, setValue] = React.useState("1");
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-
   const style = {
     position: "absolute",
     top: "50%",
@@ -28,12 +21,6 @@ export default function ManageUsers() {
     p: 4,
     overflowY: 'scroll',
   };
-
-  // const datagridstyle ={
-  //   // '& .MuiDataGrid-columnHeaderTitle css-1jbbcbn-MuiDataGrid-columnHeaderTitle': {
-  //     fontWeight: 'bold',
-    
-  // }
 
   const columnsone = [
     { field: 'id', headerName: 'User', width: 170 },
@@ -55,27 +42,7 @@ export default function ManageUsers() {
   ];
 
 
-  const columnstwo = [
-    { field: 'id', headerName: 'ID', width: 170 },
-    { field: 'name', headerName: 'NAME', width: 170 },
-    { field: 'age', headerName: 'AGE', width: 170 },
-  ];
-    
-  const rowstwo = [
-    { id: 1, name: 'Gourav', age: 12 },
-    { id: 2, name: 'Geek', age: 43 },
-    { id: 3, name: 'Pranav', age: 41 },
-    { id: 4, name: 'Abhay', age: 34 },
-    { id: 5, name: 'Pranav', age: 73 },
-    { id: 6, name: 'Disha', age: 61 },
-    { id: 7, name: 'Raghav', age: 72 },
-    { id: 8, name: 'Amit', age: 24 },
-    { id: 9, name: 'Anuj', age: 48 },
-  ];
 
-  // const Button = styled.button`
-
-  // `
   
   
   return (

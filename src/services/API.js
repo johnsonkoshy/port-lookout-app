@@ -163,14 +163,16 @@ const API = () =>{
 
            
         },
-        getAllDocuments:async (portid, folderPath='')=>{
+        getAllDocuments:async (portid, folderPath='', baseFolder)=>{
+            baseFolder = baseFolder=="updates" ? PORT_UPDATES_FOLDER : PORT_DOCUMENTS_FOLDER;
             const storage = getStorage(app);
-            const requestFolder = folderPath ? folderPath : `${PORT_DOCUMENTS_FOLDER}/${portid}`;
+            const requestFolder = folderPath ? folderPath : `${baseFolder}/${portid}`;
             const pathReference = ref(storage, requestFolder);
             const folderItems = await listAll(pathReference)
             
             return folderItems;
-        }
+        },
+        
     })
 }
 

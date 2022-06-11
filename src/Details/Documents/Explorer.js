@@ -57,7 +57,7 @@ export default function Explorer({folders,showDocumentFolders}) {
       }}
     >
       {
-        (hasFolders|| hasFiles) &&
+        !folders.diableBreadcrumbs && (hasFolders || hasFiles) &&
         (
           <Breadcrumbs separator="›" aria-label="breadcrumb" sx={{ m: 1 }}>
             {

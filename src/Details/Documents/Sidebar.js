@@ -16,7 +16,7 @@ import FolderNameDialog from './FolderNameDialog';
 
 const services = new API();
 
-export default function Sidebar({portid, showDocumentFolders, currentFolderPath}) {
+export default function Sidebar({portid, showFolders, currentFolderPath}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -30,8 +30,27 @@ export default function Sidebar({portid, showDocumentFolders, currentFolderPath}
     const t= await services.createPortDocumentFolder(folderName,portid,currentFolderPath);
     handleClose();
   }
-  const showUpdatesFiles = async () => {
+  const showUpdatesFolders = async (e) => {
+    console.log(e)
+    const extractFiles = async (folderRes) => {
+      
 
+      for(let i=0;i<folderRes.prefixes.length;i++){
+        const files= await services.getPortUpdateFiles(portid, folderRes.prefixes[i].name );
+        if(folderRes.items){
+          folderRes.items=[...folderRes.items,...files];
+        }else{
+          folderRes.items=files;
+        }
+        
+      }
+      folderRes.prefixes = [];
+      folderRes.diableBreadcrumbs = true;
+      console.log(folderRes)
+      return folderRes;
+     
+    };
+    await showFolders('', 'updates', extractFiles);
   }
  
   return (
@@ -47,7 +66,7 @@ export default function Sidebar({portid, showDocumentFolders, currentFolderPath}
         </ListItem>
         <Divider />
         <ListItem disablePadding>
-          <ListItemButton onClick={_=>showDocumentFolders()}>
+          <ListItemButton onClick={_=>showFolders()}>
             <ListItemIcon>
               <FolderIcon />
             </ListItemIcon>
@@ -62,7 +81,7 @@ export default function Sidebar({portid, showDocumentFolders, currentFolderPath}
             <ListItemText primary="Starred" />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding onClick={showUpdatesFiles}>
+        <ListItem disablePadding onClick={showUpdatesFolders}>
           <ListItemButton>
             <ListItemIcon>
               <AccessTimeFilledIcon />

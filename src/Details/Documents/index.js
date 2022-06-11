@@ -12,20 +12,25 @@ export default function Documents({portid}) {
   const [currentFolderPath, setCurrentFolderPath] = React.useState("");
   React.useEffect(()=>{
     (async ()=>{
-      const url = await showDocumentFolders();
+      const url = await showFolders();
       
     })()
   },[])
-  const showDocumentFolders = async (folderPath) => {
-    const foldersRes = await services.getAllDocuments(portid, folderPath);
+  const showFolders = async (folderPath, baseFolder, callBack) => {
+    let foldersRes = await services.getAllDocuments(portid, folderPath, baseFolder);
+    if (callBack) {
+      foldersRes = await callBack(foldersRes);
+    }
+    
     setFolderData(foldersRes);
     setCurrentFolderPath(folderPath);
+    
   }
   return (
     <Box sx={{ display: "flex" }}>
-      <Sidebar portid={portid} showDocumentFolders={showDocumentFolders} currentFolderPath={currentFolderPath}/>
+      <Sidebar portid={portid} showFolders={showFolders} currentFolderPath={currentFolderPath}/>
       <Divider orientation="vertical" flexItem />
-      <Explorer folders={folderData} showDocumentFolders={showDocumentFolders}/>
+      <Explorer folders={folderData} showDocumentFolders={showFolders}/>
     </Box>
   );
 }
