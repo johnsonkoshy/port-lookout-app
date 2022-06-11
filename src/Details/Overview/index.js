@@ -146,11 +146,49 @@ export default function Overview({portid, portcallData}) {
           </Card>
         </Box>
 
-        <Box sx={{flexGrow:1}}>
+        <Box sx={{display:'flex', flexGrow:1}}>
           <Card sx={{ m: 1 }}>
-            <CardContent sx={{display:'flex'}}>
+            <CardContent >
+              <Typography
+                  variant="h6"
+                  noWrap
+                  sx={{
+                    mr: 1,
+                    fontWeight: 700,
+                    // letterSpacing: ".1rem",
+                    textDecoration: "none",
+                    color: "text.secondary",
+                    textAlign:'center'
+                  }}
+                >
+                  TIMELINE
+              </Typography>
+              <Divider sx={{mb:2}}/>
+
               <PortTimeline />
-              <Divider orientation="vertical" flexItem sx={{mr:2, ml:2}}/>
+              
+            </CardContent>
+          </Card>
+
+          
+
+          <Card sx={{ m: 1 }}>
+            <CardContent >
+              <Typography
+                  variant="h6"
+                  noWrap
+                  sx={{
+                    mr: 1,
+                    fontWeight: 700,
+                    // letterSpacing: ".1rem",
+                    textDecoration: "none",
+                    color: "text.secondary",
+                    textAlign:'center'
+                  }}
+                >
+                  TODO
+              </Typography>
+              <Divider sx={{mb:2}}/>
               <ToDo />
             </CardContent>
           </Card>

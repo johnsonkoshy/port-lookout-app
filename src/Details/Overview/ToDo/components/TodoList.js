@@ -6,7 +6,7 @@ import TodoListItem from "./TodoListItem";
 const TodoList = React.memo(({ items, onItemCheck, onItemRemove }) => (
   <>
     {items.length > 0 && (
-      <List  sx={{m:0,p:0}}>
+      <List  sx={{m:0,p:0, maxHeight:'400px', overflowY:'auto'}}>
       {items.map((todo, idx) => (
         <TodoListItem
           {...todo}
