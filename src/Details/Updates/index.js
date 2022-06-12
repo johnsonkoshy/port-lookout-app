@@ -16,13 +16,13 @@ export default function Updates({portid}) {
   const [updates, setUpdates] = React.useState([])
   const [openedEmail, setOpenedEmail] = React.useState({})
 
-  const handleClose = () => setOpen(false);
-  const handleOpen = ()=> setOpen(true)
+  const onCloseNewUpdate = () => setOpen(false);
+  const onOpenNewUpdate = ()=> setOpen(true)
 
   const afterCreate = async (responseResult)=>{
     setOpen(false);
     await hydrateEmailList();
-    handleClose();
+    onCloseNewUpdate();
   }
   const hydrateEmailList = async()=>{
     const updatesRes = await services.getPortUpdates(portid);
@@ -40,15 +40,15 @@ export default function Updates({portid}) {
 
   return (
     <Box>
-      <Button variant="contained" onClick={handleOpen} sx={{mb:1}}>New Update</Button>
+      <Button variant="contained" onClick={onOpenNewUpdate} sx={{mb:1}}>New Update</Button>
       <Box sx={{ display: "flex" }}>
         <EmailList emailList={updates} openEmail={openEmail}/>
-        <Divider orientation="vertical" flexItem />
+        <Divider orientation="vertical" flexItem sx={{ml:2}}/>
         <EmailContent emailData={openedEmail} portid={portid}/>
       </Box>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={onCloseNewUpdate}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

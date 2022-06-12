@@ -30,6 +30,9 @@ export default function NewUpdate({portid, afterCreate}){
     const [formInput, setFormInput] = React.useState({});
     const [attachments,setAttachments] = React.useState()
     const [isTemplate, setIsTemplate] = React.useState(false)
+
+    const [templateTo,setTemplateTo]= React.useState("")
+
     const handleInput = evt => {
         const name = evt.target.name;
         const newValue = evt.target.value;
@@ -63,7 +66,9 @@ export default function NewUpdate({portid, afterCreate}){
     const onToggleTemplate = (e)=>{
         setIsTemplate(e.target.checked)
     }
-
+    const onChangeTemplate = (e)=>{
+        setTemplateTo("helloo world")
+    }
     React.useEffect(()=>{
         if(isTemplate){
 
@@ -75,9 +80,9 @@ export default function NewUpdate({portid, afterCreate}){
             
             <Card>
                 <CardContent>
-                    <FormControl sx={{ mb: 1, minWidth: 120 }} fullWidth>
+                    <FormControl  sx={{ mb: 1, minWidth: 120 }} fullWidth>
                         <InputLabel htmlFor="grouped-select">Template</InputLabel>
-                        <Select defaultValue="" id="grouped-select" label="Grouping">
+                        <Select onChange={onChangeTemplate} defaultValue="" id="grouped-select" label="Grouping">
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
@@ -97,19 +102,21 @@ export default function NewUpdate({portid, afterCreate}){
                         <TextField
                             id="outlined-multiline-static"
                             label={ "Template Name"}
-                            onChange={handleInput}
+                            onChange={e=>{handleInput(e); setTemplateTo(e.target.value)}}
                             name={ "templateName" }
                             sx={{mb:1}}
                             fullWidth
+                            value={templateTo}
                         />
                         :
                         <TextField
                             id="outlined-multiline-static"
                             label={"To"}
-                            onChange={handleInput}
+                            onChange={e=>{handleInput(e); setTemplateTo(e.target.value)}}
                             name={"to"}
                             sx={{mb:1}}
                             fullWidth
+                            value={templateTo}
                         />
                     }
                     <TextField

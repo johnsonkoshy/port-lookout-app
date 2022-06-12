@@ -12,13 +12,15 @@ const services = new API();
 export default function EmailContent({emailData, portid}) {
   const [attachments, setAttachments] = React.useState([]);
   const {subject, to, updates,id} = emailData;
- 
+  
   React.useEffect(()=>{
     (async ()=>{
       const items = await services.getPortUpdateFiles(portid, id);
       setAttachments(items)
     })()
   },[portid,emailData])
+
+  if (!(to && to.length)) return null;
   return (
     <Container maxWidth>
       <Box sx={{ display: "flex", p: 1 }}>
