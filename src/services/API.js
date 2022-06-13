@@ -58,11 +58,11 @@ const API = () =>{
                 
                 if(user) isSuccess=true
 
-                return {isSucces: isSuccess, user}
+                return {isSuccess, user}
                   
             }catch(error) {
                 console.log(error)
-                return {isSucces: isSuccess, error}
+                return {isSuccess, error}
             }
         },
         login:async(email, password)=>{

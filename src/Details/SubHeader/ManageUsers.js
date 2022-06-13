@@ -37,7 +37,7 @@ export default function ManageUsers() {
     bgcolor: "background.paper",
     boxShadow: 24,
     p: 4,
-    overflowY: 'scroll',
+    overflowY: 'auto',
   };
 
 
@@ -80,38 +80,23 @@ export default function ManageUsers() {
   
   return (
     <Box sx={style}>
-     
-
-      <Box></Box>
-      <Box sx={{ display: "flex" }} mt={2} mb={2}>
+      <Box sx={{ display: "flex", mb:1 }} >
         <Typography id="modal-modal-title" variant="h4" component="h2" color="black">
           Manage Users
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
-        <Button variant = "outlined" 
-              onClick={() => {
-                alert('clicked');
-                  }}
-              >
-            +    Invite Users</Button>
+        <Button variant = "outlined" >
+            +    Invite Users
+        </Button>
       </Box>
 
-      <Box mb={1}>
-        <Typography variant="h5" component="h2" color="black">Shared with:</Typography>
-      </Box>
       <DataGrid 
         sx={{
-          boxShadow: 2,
-          border: 2,
-          borderColor: 'primary.light',
-          '& .MuiDataGrid-cell:hover': {
-            color: 'primary.main',
-          },
-          
+          height:500,
         }}
         rows={rowsone}
         columns={columnsone}
-        pageSize = {10}
+        
       />
 
       

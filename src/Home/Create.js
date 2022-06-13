@@ -49,7 +49,7 @@ export default function Create({closeFn}){
           // autoComplete="off"
           onSubmit={handleSubmit}
         >
-            <Typography variant="h5">Create New Port Call Form</Typography>
+            <Typography variant="h5" id="modal-modal-title">Create New Port Call Form</Typography>
             <Divider  sx={{mb:1,mt:1}}/>
             <Card sx={{mb:1}}>
               <CardContent>
