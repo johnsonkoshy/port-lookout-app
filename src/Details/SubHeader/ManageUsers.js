@@ -1,5 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { DataGrid } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
@@ -15,6 +16,14 @@ export default function ManageUsers() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleClick = (event, cellValues) => {
+    console.log(cellValues.row);
   };
 
 
@@ -37,7 +46,23 @@ export default function ManageUsers() {
     { field: 'email', headerName: 'Email', width: 170 },
     { field: 'permission', headerName: 'Permission', width: 170 },
     { field: 'lastlogin', headerName: 'Last Login', width: 170 },
-    { field: 'action', headerName: 'Action', width: 170 },
+    { field: 'action', 
+      headerName: 'Action', 
+      width: 170,
+      renderCell: (cellValues) => {
+        return (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={(event) => {
+              handleClick(event, cellValues);
+            }}
+          >
+            Edit
+          </Button>
+        );
+      }
+     },
   ];
     
   const rowsone = [
@@ -55,6 +80,23 @@ export default function ManageUsers() {
     { field: 'id', headerName: 'ID', width: 170 },
     { field: 'name', headerName: 'NAME', width: 170 },
     { field: 'age', headerName: 'AGE', width: 170 },
+    { field: 'action', 
+      headerName: 'Action', 
+      width: 170,
+      renderCell: (cellValues) => {
+        return (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={(event) => {
+              handleClick(event, cellValues);
+            }}
+          >
+            Edit
+          </Button>
+        );
+      }
+     },
   ];
     
   const rowstwo = [
@@ -76,7 +118,7 @@ export default function ManageUsers() {
   
   return (
     <Box sx={style}>
-      <Box sx={{display: "flex" }}>
+      {/* <Box sx={{display: "flex" }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -89,17 +131,15 @@ export default function ManageUsers() {
         </TabContext>
         <Box sx={{ flexGrow: 1 }}></Box>
         <Button variant = "outlined" 
-              onClick={() => {
-                alert('clicked');
-                  }}
+              onClick={handleClose}
               >
               Close</Button>
-      </Box>
+      </Box> */}
 
-
-      <Box sx={{ display: "flex" }}>
-        <Typography id="modal-modal-title" variant="h6" component="h2" color="red">
-          Users
+      <Box></Box>
+      <Box sx={{ display: "flex" }} mt={2} mb={2}>
+        <Typography id="modal-modal-title" variant="h4" component="h2" color="black">
+          Manage Users
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
         <Button variant = "outlined" 
@@ -107,7 +147,11 @@ export default function ManageUsers() {
                 alert('clicked');
                   }}
               >
-              Invite Users</Button>
+            +    Invite Users</Button>
+      </Box>
+
+      <Box mb={1}>
+        <Typography variant="h5" component="h2" color="black">Shared with:</Typography>
       </Box>
       <DataGrid 
         sx={{
@@ -123,7 +167,21 @@ export default function ManageUsers() {
         columns={columnsone}
         pageSize = {10}
       />
+
+      <Box mt={3} mb={1}>
+        <Typography variant="h5" component="h2" color="black">Pending invitations:</Typography>
+      </Box>
+
       <DataGrid
+        sx={{
+          boxShadow: 2,
+          border: 2,
+          borderColor: 'primary.light',
+          '& .MuiDataGrid-cell:hover': {
+            color: 'primary.main',
+          },
+          
+        }}
         rows={rowstwo}
         columns={columnstwo}
       />
