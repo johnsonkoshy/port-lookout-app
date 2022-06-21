@@ -6,19 +6,19 @@ import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import API from '../../services/API';
+import API from "../../services/API";
 
 const services = new API();
-export default function EmailContent({emailData, portid}) {
+export default function EmailContent({ emailData, portid }) {
   const [attachments, setAttachments] = React.useState([]);
-  const {subject, to, updates,id} = emailData;
-  
-  React.useEffect(()=>{
-    (async ()=>{
+  const { subject, to, updates, id } = emailData;
+
+  React.useEffect(() => {
+    (async () => {
       const items = await services.getPortUpdateFiles(portid, id);
-      setAttachments(items)
-    })()
-  },[portid,emailData])
+      setAttachments(items);
+    })();
+  }, [portid, emailData]);
 
   if (!(to && to.length)) return null;
   return (
@@ -33,18 +33,23 @@ export default function EmailContent({emailData, portid}) {
       </Box>
       <Divider />
       <Stack spacing={2} direction="row" sx={{ p: 2 }}>
-        {
-          attachments.map(f=>{
-            return <Button variant="outlined" component="a" href={f.url} target="_blank" key={f.id}>{f.name}</Button>
-          })
-        }
-        
+        {attachments.map((f) => {
+          return (
+            <Button
+              variant="outlined"
+              component="a"
+              href={f.url}
+              target="_blank"
+              key={f.id}
+            >
+              {f.name}
+            </Button>
+          );
+        })}
       </Stack>
       <Divider />
       <Box sx={{ p: 2 }}>
-        <Typography component="p">
-         {updates}
-        </Typography>
+        <Typography component="p">{updates}</Typography>
       </Box>
     </Container>
   );

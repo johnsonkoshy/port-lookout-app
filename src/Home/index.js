@@ -13,11 +13,13 @@ import API from '../services/API';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { GlobalAppContext } from "../context/GlobalAppContext";
 
+
 export default function Home() {
-  const [open, setOpen] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [isLoading, setIsLoding] = React.useState(false);
   const {token} = React.useContext(GlobalAppContext);
-  const services = new API(token);
-  const handleClose = () => setOpen(false);
+  const services = new API();
+  const closeCreateModal = () => setIsModalOpen(false);
   const onDelete = async (portid) => {
     await services.deletePortCall(portid)
     await getUpdatePortCall()
@@ -39,15 +41,17 @@ export default function Home() {
   ]
   let columnSet= [...columns, ...additionColumn]
   const [portcallList,setPortCallList] = React.useState([]);
-  const closeFn = async ()=>{
-    setOpen(false)
+  const onClose = async ()=>{
+    setIsModalOpen(false)
     await getUpdatePortCall()
   }
   
   const getUpdatePortCall = async ()=>{
+    setIsLoding(true)
     const portcallListRes = await services.getPortCalls()
     // setPortCallList(prev => ([...portcallListRes, ...prev]))
     setPortCallList(portcallListRes)
+    setIsLoding(false)
   }
 
   React.useEffect(() => {
@@ -62,7 +66,7 @@ export default function Home() {
       <Box sx={{display:'flex', mb:1}}>
 
         <Box sx={{flexGrow:1}} />
-        <Button onClick={()=>setOpen(true)} 
+        <Button onClick={()=>setIsModalOpen(true)} 
           variant="contained" 
           sx={{
             mr:1, 
@@ -85,15 +89,16 @@ export default function Home() {
         rowsPerPageOptions={[5]}
         experimentalFeatures={{ newEditingApi: true }}
         sx={{ borderRadius: 0 }}
+        loading={isLoading}
       />
 
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={isModalOpen}
+        onClose={closeCreateModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Create closeFn={closeFn}/>
+        <Create closeFn={onClose}/>
       </Modal>
     </Box>
   );

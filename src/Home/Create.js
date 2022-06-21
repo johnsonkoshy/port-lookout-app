@@ -9,7 +9,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import SaveIcon from '@mui/icons-material/Save';
 const services = new API();
-export default function Create({closeFn}){
+export default function Create({onClose}){
     const style = {
         position: "absolute",
         top: "50%",
@@ -29,7 +29,7 @@ export default function Create({closeFn}){
         
       (async ()=>{
           const response = await services.createPortCall(formInput);
-          await closeFn(true);
+          await onClose(true);
       })()
     }
     const handleInput = evt => {
@@ -156,7 +156,7 @@ export default function Create({closeFn}){
               </CardContent>
             </Card>
         <Button variant="contained" onClick={handleSubmit} sx={{mr:1}}> <SaveIcon />Create PortCall</Button>
-        <Button variant="outlined" color="error" onClick={closeFn}>Cancel</Button>
+        <Button variant="outlined" color="error" onClick={onClose}>Cancel</Button>
         </Box>
       );
 }
