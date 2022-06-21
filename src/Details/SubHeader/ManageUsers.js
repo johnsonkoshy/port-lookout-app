@@ -82,7 +82,7 @@ export default function ManageUsers() {
   return (
     <Box sx={style}>
       <Box sx={{ display: "flex", mb:1 }} >
-        <Typography id="modal-modal-title" variant="h4" component="h2" color="black">
+        <Typography id="modal-modal-title" variant="h4" component="h2" color="text.primary">
           Manage Users
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>

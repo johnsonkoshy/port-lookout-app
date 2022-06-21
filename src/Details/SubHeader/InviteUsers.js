@@ -55,7 +55,7 @@ export default function InviteUsers() {
         aria-describedby="child-modal-description"
       >
         <Box sx={{ ...style, width: 1000 }}>
-        <Typography id= "modal-modal-title" variant = "h4" component = "h2" color = "black" sx={{mb:5}}>
+        <Typography id= "modal-modal-title" variant = "h4" component = "h2" color = "text.primary" sx={{mb:5}}>
           Invite New Users
         </Typography>
        
