@@ -8,6 +8,7 @@ import Tab from "@mui/material/Tab";
 import TabList from "@mui/lab/TabList";
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
+import InviteUsers from "./InviteUsers";
 
 
 
@@ -85,9 +86,7 @@ export default function ManageUsers() {
           Manage Users
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
-        <Button variant = "outlined" >
-            +    Invite Users
-        </Button>
+        <InviteUsers />
       </Box>
 
       <DataGrid 
