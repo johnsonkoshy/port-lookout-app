@@ -78,9 +78,10 @@ export default function InviteUsers() {
               </CardContent>
               
             </Card>
-            </Grid>
-            
             <Button variant = "outlined" onClick={handleClose} sx={{mt:5}}>Close Child Modal</Button>
+            </Grid>
+
+            
         </Box>
         
       </Modal>
