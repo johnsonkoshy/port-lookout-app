@@ -73,12 +73,12 @@ export default function InviteUsers() {
                 />
                 <Box sx={{ flexGrow: 1 }}></Box>
 
-                <Button variant = "outlined" >+ Add</Button>
+                <Button variant = "contained" >+ Add</Button>
                 </Box>
               </CardContent>
               
             </Card>
-            <Button variant = "outlined" onClick={handleClose} sx={{mt:5}}>Close Child Modal</Button>
+            <Button variant = "outlined" onClick={handleClose} sx={{mt:5}}>Close</Button>
             </Grid>
 
             
