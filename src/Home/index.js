@@ -98,7 +98,7 @@ export default function Home() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Create closeFn={onClose}/>
+        <Create onClose={onClose}/>
       </Modal>
     </Box>
   );
