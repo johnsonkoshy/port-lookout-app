@@ -7,7 +7,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ToDo from './Todo';
-import data from './data';
+import {data1} from './data';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -71,13 +71,13 @@ export default function FullWidthTabs() {
         </Tabs>
         
         <TabPanel value={value} index={0} dir={theme.direction}>
-            <ToDo data={data}/>
+            <ToDo data={data1}/>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-            <ToDo data={data}/>
+            <ToDo data={data1}/>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-            <ToDo data={data}/>
+            <ToDo data={data1}/>
         </TabPanel>
     </Box>
   );
