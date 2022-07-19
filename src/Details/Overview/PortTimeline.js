@@ -40,7 +40,7 @@ export default function PortTimeline() {
             <TimelineDot />
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent>Incident on dect</TimelineContent>
+          <TimelineContent>Incident on deck</TimelineContent>
         </TimelineItem>
 
         <TimelineItem>
