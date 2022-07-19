@@ -68,12 +68,12 @@ export default function ManageUsers() {
   ];
     
   const rowsone = [
-    {id: 'McMurray Bonnie', email: 'Gourav', permission: 'owner', lastlogin: 'a year ago', invitationstatus: 'PENDING' },
-    {id: 'Gideon, Grey', email: 12, permission: 'owner', lastlogin: 'a year ago', invitationstatus: 'PENDING'  },
-    {id: 'Braddock, Betsy', email: 43, permission: 'instructor', lastlogin: 'a year ago', invitationstatus: 'None'  },
-    {id: 'Matt, Murdock', email: 41, permission: 'reviewer', lastlogin: '2 months ago', invitationstatus: 'None'  },
-    {id: 'Blaire, Alison', email: 34, permission: 'presenter', lastlogin: '2 months ago', invitationstatus: 'PENDING'  },
-    {id: 'McCoy, Hank', email: 73, permission: 'presenter', lastlogin: '4 months ago', invitationstatus: 'None'  },
+    {id: 'John Doe', email: 'johndoe@gmail.com', permission: 'Owner', lastlogin: 'yesterday', invitationstatus: 'PENDING' },
+    {id: 'Mary Jane', email: "maryjane@gmail.com", permission: 'Viewer', lastlogin: '27 days ago', invitationstatus: 'PENDING'  },
+    {id: 'Emily Smith', email: "esmith@gmail.com", permission: 'Viewer', lastlogin: 'one week ago', invitationstatus: 'None'  },
+    // {id: 'Matt, Murdock', email: 41, permission: 'reviewer', lastlogin: '2 months ago', invitationstatus: 'None'  },
+    // {id: 'Blaire, Alison', email: 34, permission: 'presenter', lastlogin: '2 months ago', invitationstatus: 'PENDING'  },
+    // {id: 'McCoy, Hank', email: 73, permission: 'presenter', lastlogin: '4 months ago', invitationstatus: 'None'  },
   ];
 
 
