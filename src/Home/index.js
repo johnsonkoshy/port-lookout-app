@@ -83,7 +83,7 @@ export default function Home() {
       
 
       <DataGrid
-        rows={portcallList}
+        rows={port_data}
         columns={columnSet}
         pageSize={15}
         rowsPerPageOptions={[5]}
