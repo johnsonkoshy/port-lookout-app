@@ -43,7 +43,7 @@ export default function Overview({portid, portcallData}) {
                 required
                 id="outlined-required"
                 label="PortID"
-                defaultValue={" "}
+                defaultValue={"01238"}
                 margin="normal"
                 disabled
                 sx={{width:300}}
@@ -52,7 +52,7 @@ export default function Overview({portid, portcallData}) {
               <TextField
                 required
                 id="outlined-required"
-                defaultValue={"Port Name"}
+                defaultValue={"New Orleans [Brainwaithe], LA"}
                 label="Port"
                 value={portcallData.port}
                 margin="normal"
@@ -79,14 +79,14 @@ export default function Overview({portid, portcallData}) {
                 required
                 id="outlined-required"
                 label="Estimated Time of Arrival"
-                defaultValue="Jun 4, 1600"
+                defaultValue="11 Dec, 15:00"
                 margin="normal"
               />
               <TextField
                 required
                 id="outlined-required"
                 label="Estimated Time of Berthing"
-                defaultValue="Jun 4, 1600"
+                defaultValue="11 Dec, 15:20"
                 margin="normal"
                 error
               />
@@ -94,14 +94,14 @@ export default function Overview({portid, portcallData}) {
                 required
                 id="outlined-required"
                 label="Estimated Time of Completion"
-                defaultValue="Jun 4, 1600"
+                defaultValue="11 Dec, 15:45"
                 margin="normal"
               />
               <TextField
                 required
                 id="outlined-required"
                 label="Estimated Time of Discharge"
-                defaultValue="Jun 4, 1600"
+                defaultValue="11 Dec, 15:35"
                 margin="normal"
               />
             </CardContent>
@@ -161,7 +161,7 @@ export default function Overview({portid, portcallData}) {
                     textAlign:'center'
                   }}
                 >
-                  TIMELINE
+                  STATUS LOG
               </Typography>
               <Divider sx={{mb:2}}/>
 
@@ -186,7 +186,7 @@ export default function Overview({portid, portcallData}) {
                     textAlign:'center'
                   }}
                 >
-                  TODO
+                 CHARTERER CHECKLIST
               </Typography>
               <Divider sx={{mb:2}}/>
               <ToDo />

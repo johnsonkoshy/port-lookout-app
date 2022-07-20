@@ -13,7 +13,17 @@ export default function PortTimeline() {
       <Timeline sx={{m:0}}>
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
-            09:30 am
+            Dec 10 11:20 am
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>Weather Alert: Fog</TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineOppositeContent color="text.secondary">
+            Dec 10 11:40 am
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot />
@@ -21,20 +31,10 @@ export default function PortTimeline() {
           </TimelineSeparator>
           <TimelineContent>Ship left the bay</TimelineContent>
         </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent color="text.secondary">
-            10:00 am
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>Weather patterns changed</TimelineContent>
-        </TimelineItem>
 
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
-            12:00 pm
+          Dec 10 12:00 pm
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot />
@@ -45,7 +45,7 @@ export default function PortTimeline() {
 
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
-            2:30 pm
+          Dec 10 2:30 pm
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot />
@@ -56,7 +56,7 @@ export default function PortTimeline() {
 
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
-            5:30 pm
+          Dec 10 5:30 pm
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot />
@@ -67,7 +67,7 @@ export default function PortTimeline() {
 
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
-            9:30 pm
+          Dec 10 9:30 pm
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot />

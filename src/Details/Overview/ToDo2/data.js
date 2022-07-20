@@ -1,8 +1,8 @@
 const data1 = [
-    "Bunker planning (if needed)",
-    1,
-    2,
-    3
+    "Bunker Planning (if needed)",
+    "Discharge Planning Items",
+    "General Voyage Instruction (loading)",
+    "Proforma Loading"
 ]
 
 const data2 = [
@@ -11,4 +11,11 @@ const data2 = [
     2,
     3
 ]
-export {data1, data2}
+
+const data3 = [
+    "discharge planning items",
+    1,
+    2,
+    3
+]
+export {data1, data2, data3}

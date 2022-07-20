@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import port_data from "./port_data";
+import port_data_two from "./port_data_two";
 import columns from "./columns";
 import AddIcon from '@mui/icons-material/Add';
 import Button from "@mui/material/Button";
@@ -83,7 +84,7 @@ export default function Home() {
       
 
       <DataGrid
-        rows={port_data}
+        rows={port_data_two}
         columns={columnSet}
         pageSize={15}
         rowsPerPageOptions={[5]}
