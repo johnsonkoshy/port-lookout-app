@@ -5,12 +5,16 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
+ 
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
 import CommentIcon from '@mui/icons-material/Comment';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Stack from '@mui/material/Stack'
 import Typography from "@mui/material/Typography";
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import AddIcon from '@mui/icons-material/Add';
+
 export default function CheckboxList(props) {
   const {data} = props;
   const [checked, setChecked] = React.useState([0]);
@@ -30,6 +34,13 @@ export default function CheckboxList(props) {
 
   return (
     <List sx={{ width: '100%',  bgcolor: 'background.paper' }}>
+      <Box textAlign='right' >
+        <Button fullWidth variant='outlined'>
+          <AddIcon/>
+          Add
+        </Button>
+      </Box>
+      
       {data.map((value) => {
         const labelId = `checkbox-list-label-${value}`;
         const isChecked = checked.indexOf(value) !== -1;
