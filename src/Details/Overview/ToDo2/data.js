@@ -5,4 +5,10 @@ const data1 = [
     3
 ]
 
-export {data1}
+const data2 = [
+    "discharge planning items",
+    1,
+    2,
+    3
+]
+export {data1, data2}
