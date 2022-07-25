@@ -2,6 +2,7 @@ import React from "react";
 import EmailList from "./EmailList";
 import Box from "@mui/material/Box";
 import EmailContent from "./EmailContent";
+import TemporaryEmailContent from "./TemporaryEmailContent";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -9,6 +10,7 @@ import Modal from "@mui/material/Modal";
 import NewUpdate from "./NewUpdate";
 import API from "../../services/API"
 import Typography from "@mui/material/Typography";
+import EmailListBar from "./EmailListBar";
 
 const services = new API();
 
@@ -43,7 +45,8 @@ export default function Updates({portid}) {
     <Box>
       <Button variant="contained" onClick={onOpenNewUpdate} sx={{mb:1}}>New Update</Button>
       <Box sx={{ display: "flex" }}>
-        <EmailList emailList={updates} openEmail={openEmail}/>
+        {/* <EmailList emailList={updates} openEmail={openEmail}/> */}
+        <EmailListBar></EmailListBar>
         <Typography></Typography>
         <Divider orientation="vertical" flexItem sx={{ml:2}}/>
         <EmailContent emailData={openedEmail} portid={portid}/>

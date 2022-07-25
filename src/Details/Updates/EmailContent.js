@@ -7,6 +7,7 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import API from "../../services/API";
+import EmailContentBar from "./EmailContentBar";
 
 const services = new API();
 export default function EmailContent({ emailData, portid }) {
@@ -23,11 +24,15 @@ export default function EmailContent({ emailData, portid }) {
   if (!(to && to.length)) return (
     
     <Container maxWidth>
+      <EmailContentBar></EmailContentBar>
       <Box sx={{ display: "flex", p: 1 }}>
         <Avatar alt="Srinee Bajaj" sx={{ m: 1 }} />
 
         <Box sx={{ml: 1}}>
-          <Typography sx={{ fontWeight: 600}}>SENDER</Typography>
+          <Box>
+            <Typography sx={{ fontWeight: 600}}>SENDER</Typography>
+            <Divider orientation="vertical" />
+          </Box>
           <Typography>Re: Subject Line</Typography>
         </Box>
       </Box>
@@ -61,7 +66,7 @@ export default function EmailContent({ emailData, portid }) {
       </Box>
     </Container>
   );
-  
+
   return (
     <Container maxWidth>
       <Box sx={{ display: "flex", p: 1 }}>
