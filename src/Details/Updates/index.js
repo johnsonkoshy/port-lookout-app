@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import NewUpdate from "./NewUpdate";
 import API from "../../services/API"
+import Typography from "@mui/material/Typography";
 
 const services = new API();
 
@@ -43,6 +44,7 @@ export default function Updates({portid}) {
       <Button variant="contained" onClick={onOpenNewUpdate} sx={{mb:1}}>New Update</Button>
       <Box sx={{ display: "flex" }}>
         <EmailList emailList={updates} openEmail={openEmail}/>
+        <Typography></Typography>
         <Divider orientation="vertical" flexItem sx={{ml:2}}/>
         <EmailContent emailData={openedEmail} portid={portid}/>
       </Box>

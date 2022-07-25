@@ -42,7 +42,7 @@ export default function EmailList({emailList, openEmail}) {
                       {updates}
                     </>
                   }
-                />
+                /> 
               </ListItemButton>
               <Divider />
             </>

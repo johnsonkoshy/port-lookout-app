@@ -7,9 +7,13 @@ import Button from "@mui/material/Button";
 import FolderIcon from "@mui/icons-material/Folder";
 import Typography from "@mui/material/Typography";
 import File from "./File";
+import TemporaryFolder from "./TemporaryFolder";
+import TemporaryFile from "./TemporaryFile";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import LinearProgress from '@mui/material/LinearProgress';
+import Grid from '@mui/material/Grid';
+
 export default function Explorer({folders,showDocumentFolders, loading}) {
   const openFolder = async (folderPath, path) => {
    
@@ -69,7 +73,32 @@ export default function Explorer({folders,showDocumentFolders, loading}) {
         )
       }
       <TextField fullWidth label="Search" id="fullWidth" sx={{ m: 1 }} />
-      
+
+      <Typography component="span" variant="header2" color="text.secondary" display="block" sx={{ ml: 1.5,  mt: 5, mb: 2 }}>
+              Folders
+      </Typography>
+      <Grid container>
+        <Grid item xs = {3}>
+          <TemporaryFolder name="Clearance and Certificates"></TemporaryFolder>
+        </Grid>
+        <Grid item xs = {3}>
+        <TemporaryFolder name="Notice of Readiness"></TemporaryFolder>
+        </Grid>
+        <Grid item xs = {3}>
+          <TemporaryFolder name="Final Stow Plan"></TemporaryFolder>
+        </Grid>
+        <Grid item xs = {3}>
+          <TemporaryFolder name="Cargo Manifest"></TemporaryFolder>
+        </Grid>
+      </Grid>
+
+      <Typography component="span" variant="header2" color="text.secondary" display="block" sx={{ ml: 1.5,  mt: 5, mb: 2 }}>
+            Files
+      </Typography>
+      <TemporaryFile file1 = "Vessel Registry" file2 = "International Tonnage Cart" file3 = "Loadline Cart" file4 = "Safety Equipment Cert"></TemporaryFile>
+      <TemporaryFile file1 = "Cert of Financial Responsibility" file2 = "Us CBP Tonnage Report" file3 = "Last Port Clearance" file4 = "Mates Recipient"></TemporaryFile>
+      <TemporaryFile file1 = "CBP Form 1304-Crews Effects List" file2 = "CBP Form I-148 Crew List (S/S)" file3 = "Attached Port Entrance" file4 = "Attached Port Clearance"></TemporaryFile>
+      <TemporaryFile file1 = "Health Declaration" file2 = "Terminal Pre-Arrival" file3 = "Agent Pre-Arrival" file4 = "Copies of Regulating Reporting"></TemporaryFile>
       
       {
         folders && folders.prefixes && folders.prefixes.length > 0 &&

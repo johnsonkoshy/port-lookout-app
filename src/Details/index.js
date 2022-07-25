@@ -12,6 +12,7 @@ import StatementOfFacts from "./StatementOfFacts";
 import SubHeader from "./SubHeader";
 import { useParams} from "react-router-dom";
 import API from '../services/API';
+import OtherPortInfo from "./OtherPortInfo";
 
 const services = new API();
 
@@ -51,6 +52,7 @@ export default function Details() {
         <TabPanel value="2" children={<Updates portid={portid}/>} sx={styles}/>
         <TabPanel value="3" children={<Documents portid={portid}/>} sx={styles}/>
         <TabPanel value="4" children={<StatementOfFacts />} sx={styles} />
+        <TabPanel value="5" children={<OtherPortInfo />} sx={styles} />
       </TabContext>
     </Box>
   );

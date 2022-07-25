@@ -5,6 +5,9 @@ import Box from "@mui/material/Box";
 import Explorer from "./Explorer";
 import API from '../../services/API'
 import LinearProgress from '@mui/material/LinearProgress';
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
 
 const services = new API();
 
@@ -41,7 +44,10 @@ export default function Documents({portid}) {
         <Sidebar portid={portid} showFolders={showFolders} currentFolderPath={currentFolderPath}/>
         <Divider orientation="vertical" flexItem />
         <Explorer folders={folderData} showDocumentFolders={showFolders} loading={loading}/>
+        <Divider orientation="horizontal" flexItem />
     </Box>
+    
+    <Card></Card>
     </>
    
   );
