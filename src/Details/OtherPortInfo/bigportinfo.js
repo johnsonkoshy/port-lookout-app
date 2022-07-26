@@ -18,7 +18,7 @@ export default function BigPortInfo({list1, list2, list3, list4}) {
     const oneCard = (list1) =>  
         <Box sx={{ m: 1, mb: 2, }}>
             
-            <Card sx={{height:'25vw'}}>
+            <Card sx={{height:'25vw',maxHeight: '100%', overflow: 'auto'}}>
             <Box sx={{ direction : "column", justifyContent:"center", alignItems:"center", mt: 2}}>
                 <CardContent >
                     {list1[0]}

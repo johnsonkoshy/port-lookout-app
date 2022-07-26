@@ -64,7 +64,7 @@ export default function InviteUsers() {
               <CardContent>
                 
                 <Box display = "flex">
-                <TextField
+                <TextField fullWidth
                   id="outlined-multiline-flexible"
                   label="Add People"
                   name='addpeople'
@@ -73,7 +73,7 @@ export default function InviteUsers() {
                 />
                 <Box sx={{ flexGrow: 1 }}></Box>
 
-                <Button variant = "contained" >+ Add</Button>
+                <Button variant = "contained" sx={{ml:3}}>Add</Button>
                 </Box>
               </CardContent>
               

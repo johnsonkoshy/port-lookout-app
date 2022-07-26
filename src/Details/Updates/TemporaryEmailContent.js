@@ -15,7 +15,7 @@ import Stack from "@mui/material/Stack";
 export default function TemporaryEmailList(){
     
     return(
-       <Stack sx={{ overflow: 'auto'}}>
+       <Stack sx={{maxHeight: '100%', overflow: 'auto'}}>
            
             <Box sx={{backgroundColor : "gray", mt: 2, mb: 2}}>
                 <Typography>Today</Typography>

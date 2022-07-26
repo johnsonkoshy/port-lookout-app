@@ -23,19 +23,24 @@ export default function SmallPortInfo() {
     const oneCard = () =>  
         <Box sx={{ m: 1, mb: 2, }}>
             
-            <Card sx={{height:'25vw'}}>
+            <Card sx={{height:'25vw', maxHeight: '100%', overflow: 'auto'}}>
             <Box sx={{   justifyContent:"center", alignItems:"center", mt: 2}}>
                 <CardContent >
                   <List>
                      <Typography style={{ fontWeight: 600 }}>Notes: </Typography>
                     <ListItem>
-                          <ListItemText sx={{ display: 'list-item' }}>Reverting, if any</ListItemText>
+                          <ListItemText sx={{ display: 'list-item' }}>Weather:
+                            No fog occurred overnight. Little to no fog expected today and overnight.
+                            Some rain occurred overnight. Some rain expected today and overnight.</ListItemText>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText>USDA/NCB inspections arranged after Captain’s confirmation of hold readiness</ListItemText>
                       </ListItem>
                   </List>
 
                 </CardContent>
                 <CardContent>
-                    <List>
+                    <List >
                     <Typography style={{ fontWeight: 600 }}>Links: </Typography>
                         <ListItem sx={{ display: 'list-item' }}>https://tidesandcurrents.noaa.gov/map/index.html</ListItem>
                         <ListItem sx={{ display: 'list-item' }}>https://geospatial-usace.opendata.arcgis.com/datasets/349ce90ebfcd47f49401ac4d817b0d58_2/explore?filters=eyJTVEFURV9QT1NUIjpbIkxBIl0sIlBPUlRfTkFNRSI6WyJOZXcgT3JsZWFucywgTEEiLCJTb3V0aCBMb3Vpc2lhbmEsIExBLCBQb3J0IG9mIiwiQmF0b24gUm91Z2UsIExBIl19&location=29.875358%2C-89.963165%2C11.93</ListItem>

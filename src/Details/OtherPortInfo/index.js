@@ -13,14 +13,14 @@ export default function OtherPortInfo() {
                     "Max Draft Alongside:  45 ft"]
     
     const list2 = ["Gangway:  Ship gangway",
-                    "Connection Sizes:  2 x 6 inch cargo hoses [T.B.C.]",
+                    "Stowage: Holds # 1,2,3,4,& 5",
                     "Anchorage:  12-mile anchorage/N. Orleans, if needed",
                     "Transit Time From SWPASS:  8 hours"]
     
-    const list3 = ["Stowages:  #1-4P,4S,5P,5S",
-                    "Parcel #(s):  #1-64654BBLS drilling fluid",
+    const list3 = ["Last 3 Cargoes: Last - Barytes in Bulk, 2nd Last - Coal in Bulk, 3rd Last - Soybeans",
                     "Shore Figures:  TBD",
-                    "Cargo to Discharge:  TBD"
+                    "Cargo to Discharge:  TBD",
+                    ""
                     ]
     
     const list4 = ["Bunkers:  Yes, permitted alongside for fee",
