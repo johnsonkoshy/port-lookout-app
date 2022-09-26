@@ -9,7 +9,7 @@ import Header from "./Header";
 import Details from "./Details";
 import Login from "./Login";
 import Signup from "./Login/Signup";
-import { GoogleReCaptchaProvider, GoogleReCaptcha} from 'react-google-recaptcha-v3';
+// import { GoogleReCaptchaProvider, GoogleReCaptcha} from 'react-google-recaptcha-v3';
 import {GlobalAppContext, GlobalAppContextProvider} from "./context/GlobalAppContext";
 
 

@@ -31,9 +31,9 @@ export default function CheckboxList(props) {
 
     setChecked(newChecked);
   };
-
+///
   return (
-    <List sx={{ width: '100%',  bgcolor: 'background.paper' }}>
+    <List sx={{maxHeight: '100%', overflow: 'auto',  bgcolor: 'background.paper' }}>
       <Box textAlign='right' >
         <Button fullWidth variant='outlined'>
           <AddIcon/>

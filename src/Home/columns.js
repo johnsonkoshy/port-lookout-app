@@ -56,16 +56,16 @@ export default [
     headerName: "Port",
     width: 150
   },
-  {
-    field: "charterer",
-    headerName: "Charterer",
-    width: 150
-  },
-  {
-    field: "agent",
-    headerName: "Agent",
-    width: 100
-  },
+  // {
+  //   field: "charterer",
+  //   headerName: "Charterer",
+  //   width: 150
+  // },
+  // {
+  //   field: "agent",
+  //   headerName: "Agent",
+  //   width: 100
+  // },
  
 ];
 

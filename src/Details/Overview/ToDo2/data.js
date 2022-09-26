@@ -1,8 +1,11 @@
 const data1 = [
     "Bunker Planning (if needed)",
-    "Discharge Planning Items",
     "General Voyage Instruction (loading)",
-    "Proforma Loading"
+    "Appoint Surveyor (pre-loading)",
+    "Agency omination (loading)",
+    "Proforma Loading",
+    "Final Stow Plan - Sharepoint upload",
+    "Secure Sailing - Sharepoint upload"
 ]
 
 const data2 = [

@@ -29,13 +29,9 @@ export default function SmallPortInfo() {
                   <List>
                      <Typography style={{ fontWeight: 600 }}>Notes: </Typography>
                     <ListItem>
-                          <ListItemText sx={{ display: 'list-item' }}>Weather:
-                            No fog occurred overnight. Little to no fog expected today and overnight.
-                            Some rain occurred overnight. Some rain expected today and overnight.</ListItemText>
+                          <ListItemText sx={{ display: 'list-item' }}>Reverting, if any.</ListItemText>
                       </ListItem>
-                      <ListItem>
-                        <ListItemText>USDA/NCB inspections arranged after Captain’s confirmation of hold readiness</ListItemText>
-                      </ListItem>
+                     
                   </List>
 
                 </CardContent>
@@ -44,6 +40,7 @@ export default function SmallPortInfo() {
                     <Typography style={{ fontWeight: 600 }}>Links: </Typography>
                         <ListItem sx={{ display: 'list-item' }}>https://tidesandcurrents.noaa.gov/map/index.html</ListItem>
                         <ListItem sx={{ display: 'list-item' }}>https://geospatial-usace.opendata.arcgis.com/datasets/349ce90ebfcd47f49401ac4d817b0d58_2/explore?filters=eyJTVEFURV9QT1NUIjpbIkxBIl0sIlBPUlRfTkFNRSI6WyJOZXcgT3JsZWFucywgTEEiLCJTb3V0aCBMb3Vpc2lhbmEsIExBLCBQb3J0IG9mIiwiQmF0b24gUm91Z2UsIExBIl19&location=29.875358%2C-89.963165%2C11.93</ListItem>
+                        <ListItem sx={{ display: 'list-item' }}>https://www.marinetraffic.com/en/ais/home/centerx:-96.1/centery:28.4/zoom:7</ListItem>
                     </List>
 
                 </CardContent>
