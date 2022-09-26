@@ -12,10 +12,6 @@ import Modal from "@mui/material/Modal";
 import Create from './Create';
 import API from '../services/API';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Avatar from '@mui/material/Avatar';
-import Typography from "@mui/material/Typography";
-import StarIcon from '@mui/icons-material/Star';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import { GlobalAppContext } from "../context/GlobalAppContext";
 
 
@@ -44,41 +40,7 @@ export default function Home() {
       }
     },
   ]
-
-
-  const agentColumn=[
-    {
-      field: "agentBtn",
-      headerName: "Agent",
-      description: "This column has a value getter and is not sortable.",
-      sortable: false,
-      width: 90,
-      editable: false,
-      renderCell: ({ row, value, hasFocus }) => {
-        return (
-          <Avatar>JD</Avatar>
-        );
-      }
-    },
-  ]
-
-  const chartererColumn=[
-    {
-      field: "chartererBtn",
-      headerName: "Charterer",
-      description: "This column has a value getter and is not sortable.",
-      sortable: false,
-      width: 90,
-      editable: false,
-      renderCell: ({ row, value, hasFocus }) => {
-        return (
-          <Avatar>MV</Avatar>
-        );
-      }
-    },
-  ]
-
-  let columnSet= [...columns, ...chartererColumn, ...agentColumn, ...additionColumn]
+  let columnSet= [...columns, ...additionColumn]
   const [portcallList,setPortCallList] = React.useState([]);
   const onClose = async ()=>{
     setIsModalOpen(false)
@@ -102,15 +64,13 @@ export default function Home() {
   
   return (
     <Box sx={{ height: 700, m: 2 }}>
-      
       <Box sx={{display:'flex', mb:1}}>
-      <Typography sx={{textTransform: 'uppercase', fontWeight: 'bold', fontSize: 'h4.fontSize', m: 2}}>My Vessels</Typography>
-        
+
+        <Box sx={{flexGrow:1}} />
         <Button onClick={()=>setIsModalOpen(true)} 
           variant="contained" 
           sx={{
-            borderRadius: 8,
-            m:2.5, 
+            mr:1, 
             backgroundColor:'primary.main',
             '&:hover':{
               backgroundColor:'primary.light',
@@ -119,15 +79,12 @@ export default function Home() {
         >
           <AddIcon />Create New
         </Button>
-        <Box sx={{flexGrow:1}} />
-        <TextField  label="Search" id="search" sx={{m: 1}}/>
-        <StarIcon sx={{m: 2}}></StarIcon>
-        <FilterListIcon sx={{m: 2}}></FilterListIcon>
+        <TextField  label="Search" id="search" />
       </Box>
       
 
       <DataGrid
-        rows={wet_goods}
+        rows={dry_goods}
         columns={columnSet}
         pageSize={15}
         rowsPerPageOptions={[5]}

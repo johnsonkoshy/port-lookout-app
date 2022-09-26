@@ -10,7 +10,7 @@ import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 export default function PortTimeline() {
   return (
     <React.Fragment>
-      <Timeline sx={{m:0, maxHeight: '100%', overflow: 'auto'}}>
+      <Timeline sx={{m:0}}>
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
             Dec 10 11:20 am
@@ -36,24 +36,24 @@ export default function PortTimeline() {
           <TimelineOppositeContent color="text.secondary">
           Dec 10 12:00 pm
           </TimelineOppositeContent>
-          <TimelineSeparator sx={{height:200}}>
+          <TimelineSeparator>
             <TimelineDot />
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent>DELAY</TimelineContent>
+          <TimelineContent>Incident on deck</TimelineContent>
         </TimelineItem>
 
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
           Dec 10 2:30 pm
           </TimelineOppositeContent>
-          <TimelineSeparator sx={{height:150}}>
+          <TimelineSeparator>
             <TimelineDot />
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent>At fueling point</TimelineContent>
+          <TimelineContent>Incident resolved</TimelineContent>
         </TimelineItem>
-{/* 
+
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
           Dec 10 5:30 pm
@@ -63,7 +63,7 @@ export default function PortTimeline() {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>Ship reached fueling point</TimelineContent>
-        </TimelineItem> */}
+        </TimelineItem>
 
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">

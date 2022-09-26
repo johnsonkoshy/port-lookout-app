@@ -1,168 +1,198 @@
 [
     {
       "id": 12380,
-      "vesselName": " MARITIME",
+      "vesselName": "MV MARITIME",
       "eta": "11 Dec\n15:00",
       "etb": "11 Dec 15:25",
       "etc": "11 Dec 15:45",
       "etd": "11 Dec 15:35",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 95831,
-      "vesselName": " NAUTICAL",
+      "vesselName": "MV NAUTICAL",
       "eta": "13 Dec 6:45",
       "etb": "13 Dec 7:25",
       "etc": "13 Dec 7:45",
       "etd": "13 Dec 7:30",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 64920,
-      "vesselName": " ROSA",
+      "vesselName": "MV ROSA",
       "eta": "11 Dec 9:00",
       "etb": "11 Dec 9:10",
       "etc": "11 Dec 9:40",
       "etd": "11 Dec 9:25",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 74839,
-      "vesselName": " DIANTHUS",
+      "vesselName": "MV DIANTHUS",
       "eta": "12 Dec 21:15",
       "etb": "12 Dec 21:25",
       "etc": "12 Dec 21:53",
       "etd": "12 Dec 21:45",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 37492,
-      "vesselName": " FREESIA",
+      "vesselName": "MV FREESIA",
       "eta": "17 Dec 12:55",
       "etb": "17 Dec 1:15",
       "etc": "17 Dec 1:45",
       "etd": "17 Dec 1:31",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 39104,
-      "vesselName": " HYACINTH",
+      "vesselName": "MV HYACINTH",
       "eta": "14 Dec 17:40",
       "etb": "14 Dec 17:50",
       "etc": "14 Dec 18:12",
       "etd": "14 Dec 18:00",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 19384,
-      "vesselName": " DAFFODIL",
+      "vesselName": "MV DAFFODIL",
       "eta": "12 Dec 2:45",
       "etb": "12 Dec 3:03",
       "etc": "12 Dec 3:45",
       "etd": "12 Dec 3:30",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 49503,
-      "vesselName": " LAHIFF",
+      "vesselName": "MV LAHIFF",
       "eta": "9 Dec 4:15",
       "etb": "9 Dec 4:25",
       "etc": "9 Dec 4:55",
       "etd": "9 Dec 4:45",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 98274,
-      "vesselName": " MARKOS",
+      "vesselName": "MV MARKOS",
       "eta": "8 Dec 12:20",
       "etb": "8 Dec 12:30",
       "etc": "8 Dec 12:55",
       "etd": "8 Dec 12:40",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 10546,
-      "vesselName": " WAIND",
+      "vesselName": "MV WAIND",
       "eta": "6 Dec 5:10",
       "etb": "6 Dec 5:21",
       "etc": "6 Dec 5:55",
       "etd": "6 Dec 5:45",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 81145,
-      "vesselName": " ALLSWORTH",
+      "vesselName": "MV ALLSWORTH",
       "eta": "6 Dec 1:30",
       "etb": "6 Dec 1:40",
       "etc": "6 Dec 2:20",
       "etd": "6 Dec 1:55",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 61258,
-      "vesselName": " LEDWITH",
+      "vesselName": "MV LEDWITH",
       "eta": "5 Dec 9:30",
       "etb": "5 Dec 9:45",
       "etc": "5 Dec 10:30",
       "etd": "5 Dec 10:15",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 19303,
-      "vesselName": " BRAYWOOD",
+      "vesselName": "MV BRAYWOOD",
       "eta": "5 Dec 12:10",
       "etb": "5 Dec 12:20",
       "etc": "5 Dec 12:50",
       "etd": "5 Dec 12:45",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 64514,
-      "vesselName": " MOUGEL",
+      "vesselName": "MV MOUGEL",
       "eta": "3 Dec 10:30",
       "etb": "3 Dec 10:40",
       "etc": "3 Dec 11:20",
       "etd": "3 Dec 11:55",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     },
     {
       "id": 48715,
-      "vesselName": " WALSHAM",
+      "vesselName": "MV WALSHAM",
       "eta": "1 Dec 1:30",
       "etb": "1 Dec 1:40",
       "etc": "1 Dec 2:20",
       "etd": "1 Dec 1:55",
       "cargo": "Crude Oil",
       "berth": "SHB #3",
-      "port": "BRAITHWAITE"
+      "port": "Braitwaithe",
+      "charterer": "John Doe",
+      "agent": "Jane Doe"
     }
   ]
   

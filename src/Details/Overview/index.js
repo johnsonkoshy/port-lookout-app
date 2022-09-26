@@ -24,7 +24,7 @@ export default function Overview({portid, portcallData}) {
       </Alert>
       <Box sx={{display:'flex'}}>
         <Box sx={{flexGrow:2}}>
-          <Card sx={{ overflow: 'auto', m: 1 }}>
+          <Card sx={{ m: 1 }}>
             <CardContent>
               <Typography
                 variant="h6"
@@ -41,42 +41,25 @@ export default function Overview({portid, portcallData}) {
               </Typography>
               <TextField
                 required
-                id="standard-basic"
-                // sx={{ m: 9 }}
-                variant = "standard"
+                id="outlined-required"
                 label="PortID"
-                defaultValue={""}
-                
-                sx={{width:250, m:3}}
+                defaultValue={"01238"}
+                margin="normal"
+                disabled
+                sx={{width:300}}
                 value={portcallData.id?.toUpperCase()}
               />
-       
               <TextField
                 required
-                id="standard-basic"
-                variant = "standard"
-                defaultValue={""}
-                label="Load Port"
-              
-                sx={{width:250, m:3}}
+                id="outlined-required"
+                defaultValue={"New Orleans [Brainwaithe], LA"}
+                label="Port"
                 value={portcallData.port}
-                // margin="normal"
-              />
-          
-              <TextField
-                required
-                id="standard-basic"
-                variant = "standard"
-                defaultValue={""}
-                label="Berth"
-                
-                sx={{width:250, m:3}}
-                value={portcallData.port}
-                // margin="normal"
+                margin="normal"
               />
             </CardContent>
           </Card>
-          <Card sx={{  overflow: 'auto', m: 1 }}>
+          <Card sx={{ m: 1 }}>
             <CardContent>
               <Typography
                 variant="h6"
@@ -95,43 +78,35 @@ export default function Overview({portid, portcallData}) {
               <TextField
                 required
                 id="outlined-required"
-                variant = "standard"
                 label="Estimated Time of Arrival"
-                defaultValue=""
-                sx={{width:250, m:1.5}}
+                defaultValue="11 Dec, 15:00"
                 margin="normal"
               />
               <TextField
                 required
                 id="outlined-required"
-                variant = "standard"
                 label="Estimated Time of Berthing"
-                defaultValue=""
-                sx={{width:250, m:1.5}}
+                defaultValue="11 Dec, 15:20"
                 margin="normal"
-                // error
+                error
               />
               <TextField
                 required
                 id="outlined-required"
-                variant = "standard"
                 label="Estimated Time of Completion"
-                defaultValue=""
-                sx={{width:250, m:1.5}}
+                defaultValue="11 Dec, 15:45"
                 margin="normal"
               />
               <TextField
                 required
                 id="outlined-required"
-                variant = "standard"
                 label="Estimated Time of Discharge"
-                defaultValue=""
-                sx={{width:250, m:1.5}}
+                defaultValue="11 Dec, 15:35"
                 margin="normal"
               />
             </CardContent>
           </Card>
-          <Card sx={{  overflow: 'auto', m: 1 }}>
+          <Card sx={{ m: 1 }}>
             <CardContent>
               <Typography
                 variant="h6"
@@ -148,38 +123,31 @@ export default function Overview({portid, portcallData}) {
               </Typography>
               <TextField
                 required
-                variant = "standard"
                 id="outlined-required"
                 label="Operator"
-                sx={{width:250, m:3}}
-                defaultValue=""
-                // margin="normal"
+                defaultValue="John Smith"
+                margin="normal"
               />
               <TextField
                 required
                 id="outlined-required"
-                variant = "standard"
-                label="Agent"
-                defaultValue=""
-                sx={{width:250, m:3}}
-                // margin="normal"
-              />
-              <TextField
-                required
-                id="outlined-required"
-                variant = "standard"
                 label="Charterer"
-                defaultValue=""
-                sx={{width:250, m:3}}
-                // margin="normal"
+                defaultValue="Stusco"
+                margin="normal"
               />
-              
+              <TextField
+                required
+                id="outlined-required"
+                label="Agent"
+                defaultValue="Bill White"
+                margin="normal"
+              />
             </CardContent>
           </Card>
         </Box>
 
         <Box sx={{display:'flex', flexGrow:1}}>
-          <Card sx={{ maxHeight: '100%', overflow: 'auto', m: 1 }}>
+          <Card sx={{ m: 1 }}>
             <CardContent >
               <Typography
                   variant="h6"
@@ -204,7 +172,7 @@ export default function Overview({portid, portcallData}) {
 
           
 
-          <Card sx={{ overflow: 'auto', m: 1 , flexGrow:1}}>
+          <Card sx={{ m: 1 , flexGrow:1}}>
             <CardContent >
               <Typography
                   variant="h6"
