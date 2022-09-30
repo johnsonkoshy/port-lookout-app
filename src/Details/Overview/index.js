@@ -40,6 +40,7 @@ export default function Overview({portid, portcallData}) {
                 PORT
               </Typography>
               <TextField
+                shrink
                 required
                 id="standard-basic"
                 // sx={{ m: 9 }}
